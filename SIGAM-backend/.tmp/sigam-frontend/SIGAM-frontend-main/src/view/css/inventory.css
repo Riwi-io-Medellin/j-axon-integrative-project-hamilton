@@ -1,0 +1,202 @@
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f5f6f8;
+color:#1f2937;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:white;
+border-bottom:1px solid #e5e7eb;
+padding:16px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-box{
+width:35px;
+height:35px;
+background:#2563eb;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+gap:25px;
+color:#6b7280;
+font-size:14px;
+}
+
+.menu a{
+text-decoration:none;
+color:#6b7280;
+}
+
+.menu a.active{
+color:#2563eb;
+font-weight:600;
+}
+
+/* PAGE */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.header h1{
+font-size:26px;
+}
+
+.header p{
+color:#6b7280;
+font-size:14px;
+}
+
+.btn{
+background:#111827;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* FILTER BAR */
+
+.filters{
+background:white;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:15px;
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.filters input,
+.filters select{
+padding:10px;
+border:1px solid #d1d5db;
+border-radius:8px;
+font-size:14px;
+}
+
+.filters input{
+flex:1;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:20px;
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:4px;
+}
+
+.asset-id{
+font-size:12px;
+color:#9ca3af;
+margin-bottom:10px;
+}
+
+.info{
+font-size:14px;
+margin-bottom:6px;
+}
+
+.label{
+color:#6b7280;
+font-size:13px;
+}
+
+.footer{
+margin-top:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* STATUS BADGES */
+
+.badge{
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+}
+
+.active{
+background:#dcfce7;
+color:#15803d;
+}
+
+.maintenance{
+background:#fef9c3;
+color:#a16207;
+}
+
+.expired{
+color:#dc2626;
+}
+
+.warning{
+color:#f59e0b;
+}
+
+/* RESULT COUNT */
+
+.result{
+font-size:13px;
+color:#6b7280;
+margin-bottom:10px;
+}
+
+/* detail page tweaks */
+#mainContent img {
+    max-width: 100%;
+    height: auto;
+}
+#mainContent .card p {
+    margin-bottom: 0.5rem;
+}

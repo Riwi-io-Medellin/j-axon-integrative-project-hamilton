@@ -1,0 +1,272 @@
+/* ==========================================================================
+   SIGAM - Footer Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   FOOTER BASE
+   ========================================================================== */
+
+.sigam-footer {
+  background: var(--color-slate-900);
+  color: var(--color-slate-300);
+  padding: var(--space-12) 0 var(--space-6);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   FOOTER CONTAINER
+   ========================================================================== */
+
+.sigam-footer-container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ==========================================================================
+   FOOTER MAIN CONTENT
+   ========================================================================== */
+
+.sigam-footer-main {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-slate-800);
+}
+
+/* ==========================================================================
+   FOOTER BRAND SECTION
+   ========================================================================== */
+
+.sigam-footer-brand {
+  max-width: 320px;
+}
+
+.sigam-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.sigam-footer-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.sigam-footer-logo-text {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse);
+}
+
+.sigam-footer-description {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-slate-400);
+  margin-bottom: var(--space-6);
+}
+
+/* ==========================================================================
+   FOOTER SOCIAL LINKS
+   ========================================================================== */
+
+.sigam-footer-social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.sigam-footer-social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-slate-800);
+  border-radius: var(--radius-md);
+  color: var(--color-slate-400);
+  transition: all var(--transition-fast);
+}
+
+.sigam-footer-social-link:hover {
+  background: var(--color-primary-600);
+  color: var(--text-inverse);
+}
+
+.sigam-footer-social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   FOOTER LINKS SECTIONS
+   ========================================================================== */
+
+.sigam-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sigam-footer-links-title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-inverse);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.sigam-footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sigam-footer-links-list a {
+  font-size: var(--text-sm);
+  color: var(--color-slate-400);
+  transition: color var(--transition-fast);
+}
+
+.sigam-footer-links-list a:hover {
+  color: var(--text-inverse);
+}
+
+/* ==========================================================================
+   FOOTER CONTACT INFO
+   ========================================================================== */
+
+.sigam-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sigam-footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-slate-400);
+}
+
+.sigam-footer-contact-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary-400);
+}
+
+.sigam-footer-contact-item a {
+  color: var(--color-slate-400);
+  transition: color var(--transition-fast);
+}
+
+.sigam-footer-contact-item a:hover {
+  color: var(--text-inverse);
+}
+
+/* ==========================================================================
+   FOOTER BOTTOM BAR
+   ========================================================================== */
+
+.sigam-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-6);
+  gap: var(--space-4);
+}
+
+.sigam-footer-copyright {
+  font-size: var(--text-sm);
+  color: var(--color-slate-500);
+}
+
+.sigam-footer-legal {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.sigam-footer-legal a {
+  font-size: var(--text-sm);
+  color: var(--color-slate-500);
+  transition: color var(--transition-fast);
+}
+
+.sigam-footer-legal a:hover {
+  color: var(--color-slate-300);
+}
+
+/* ==========================================================================
+   FOOTER RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .sigam-footer-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sigam-footer-brand {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .sigam-footer {
+    padding: var(--space-8) 0 var(--space-4);
+  }
+  
+  .sigam-footer-main {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .sigam-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .sigam-footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   FOOTER VARIANT - SIMPLE (for internal pages)
+   ========================================================================== */
+
+.sigam-footer-simple {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: var(--space-4) 0;
+}
+
+.sigam-footer-simple .sigam-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sigam-footer-simple .sigam-footer-copyright {
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .sigam-footer-simple .sigam-footer-container {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+}

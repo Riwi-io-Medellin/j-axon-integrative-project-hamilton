@@ -1,0 +1,308 @@
+/* ==========================================================================
+   SIGAM - Grid System & Layout Utilities
+   ========================================================================== */
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+.sigam-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.sigam-container-sm { max-width: var(--container-sm); }
+.sigam-container-md { max-width: var(--container-md); }
+.sigam-container-lg { max-width: var(--container-lg); }
+.sigam-container-xl { max-width: var(--container-xl); }
+.sigam-container-2xl { max-width: var(--container-2xl); }
+.sigam-container-fluid { max-width: 100%; }
+
+@media (min-width: 640px) {
+  .sigam-container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sigam-container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+/* ==========================================================================
+   CSS GRID SYSTEM
+   ========================================================================== */
+
+.sigam-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Column counts */
+.sigam-grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.sigam-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.sigam-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.sigam-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.sigam-grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+.sigam-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.sigam-grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* Auto-fit responsive grid */
+.sigam-grid-auto-sm { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.sigam-grid-auto-md { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.sigam-grid-auto-lg { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+
+/* Gap utilities */
+.sigam-gap-0 { gap: 0; }
+.sigam-gap-2 { gap: var(--space-2); }
+.sigam-gap-4 { gap: var(--space-4); }
+.sigam-gap-6 { gap: var(--space-6); }
+.sigam-gap-8 { gap: var(--space-8); }
+
+/* Column span */
+.sigam-col-span-1 { grid-column: span 1; }
+.sigam-col-span-2 { grid-column: span 2; }
+.sigam-col-span-3 { grid-column: span 3; }
+.sigam-col-span-4 { grid-column: span 4; }
+.sigam-col-span-6 { grid-column: span 6; }
+.sigam-col-span-full { grid-column: 1 / -1; }
+
+/* Row span */
+.sigam-row-span-1 { grid-row: span 1; }
+.sigam-row-span-2 { grid-row: span 2; }
+.sigam-row-span-3 { grid-row: span 3; }
+
+/* ==========================================================================
+   FLEXBOX UTILITIES
+   ========================================================================== */
+
+.sigam-flex { display: flex; }
+.sigam-inline-flex { display: inline-flex; }
+
+/* Direction */
+.sigam-flex-row { flex-direction: row; }
+.sigam-flex-row-reverse { flex-direction: row-reverse; }
+.sigam-flex-col { flex-direction: column; }
+.sigam-flex-col-reverse { flex-direction: column-reverse; }
+
+/* Wrap */
+.sigam-flex-wrap { flex-wrap: wrap; }
+.sigam-flex-nowrap { flex-wrap: nowrap; }
+
+/* Justify content */
+.sigam-justify-start { justify-content: flex-start; }
+.sigam-justify-end { justify-content: flex-end; }
+.sigam-justify-center { justify-content: center; }
+.sigam-justify-between { justify-content: space-between; }
+.sigam-justify-around { justify-content: space-around; }
+.sigam-justify-evenly { justify-content: space-evenly; }
+
+/* Align items */
+.sigam-items-start { align-items: flex-start; }
+.sigam-items-end { align-items: flex-end; }
+.sigam-items-center { align-items: center; }
+.sigam-items-baseline { align-items: baseline; }
+.sigam-items-stretch { align-items: stretch; }
+
+/* Align self */
+.sigam-self-auto { align-self: auto; }
+.sigam-self-start { align-self: flex-start; }
+.sigam-self-end { align-self: flex-end; }
+.sigam-self-center { align-self: center; }
+.sigam-self-stretch { align-self: stretch; }
+
+/* Flex grow/shrink */
+.sigam-flex-1 { flex: 1 1 0%; }
+.sigam-flex-auto { flex: 1 1 auto; }
+.sigam-flex-none { flex: none; }
+.sigam-grow { flex-grow: 1; }
+.sigam-grow-0 { flex-grow: 0; }
+.sigam-shrink { flex-shrink: 1; }
+.sigam-shrink-0 { flex-shrink: 0; }
+
+/* ==========================================================================
+   MAIN APP LAYOUT
+   ========================================================================== */
+
+.sigam-app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sigam-app-sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: var(--z-fixed);
+  overflow-y: auto;
+}
+
+.sigam-app-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sigam-app-header {
+  height: var(--navbar-height);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.sigam-app-content {
+  flex: 1;
+  padding: var(--space-6);
+}
+
+.sigam-app-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   DASHBOARD GRID
+   ========================================================================== */
+
+.sigam-dashboard-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Stats row - 4 columns on desktop */
+.sigam-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+/* Two column layout */
+.sigam-dashboard-two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-6);
+}
+
+/* ==========================================================================
+   RESPONSIVE UTILITIES
+   ========================================================================== */
+
+/* Hide/show at breakpoints */
+.sigam-hide-mobile { display: block; }
+.sigam-show-mobile { display: none; }
+
+@media (max-width: 768px) {
+  .sigam-hide-mobile { display: none; }
+  .sigam-show-mobile { display: block; }
+  
+  /* Responsive grid adjustments */
+  .sigam-grid-cols-2,
+  .sigam-grid-cols-3,
+  .sigam-grid-cols-4,
+  .sigam-grid-cols-5,
+  .sigam-grid-cols-6 {
+    grid-template-columns: 1fr;
+  }
+  
+  .sigam-dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sigam-dashboard-two-col {
+    grid-template-columns: 1fr;
+  }
+  
+  /* App layout mobile */
+  .sigam-app-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+  
+  .sigam-app-sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .sigam-app-main {
+    margin-left: 0;
+  }
+  
+  .sigam-app-content {
+    padding: var(--space-4);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sigam-grid-cols-4,
+  .sigam-grid-cols-5,
+  .sigam-grid-cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sigam-dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium screens - show 3 columns */
+@media (min-width: 768px) {
+  .sigam-md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .sigam-md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sigam-md-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .sigam-lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sigam-lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .sigam-lg-grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .sigam-lg-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* ==========================================================================
+   SPACING UTILITIES
+   ========================================================================== */
+
+/* Margin */
+.sigam-m-0 { margin: 0; }
+.sigam-m-2 { margin: var(--space-2); }
+.sigam-m-4 { margin: var(--space-4); }
+.sigam-m-6 { margin: var(--space-6); }
+.sigam-m-8 { margin: var(--space-8); }
+
+.sigam-mx-auto { margin-left: auto; margin-right: auto; }
+.sigam-my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+.sigam-my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
+
+.sigam-mt-4 { margin-top: var(--space-4); }
+.sigam-mt-6 { margin-top: var(--space-6); }
+.sigam-mt-8 { margin-top: var(--space-8); }
+.sigam-mb-4 { margin-bottom: var(--space-4); }
+.sigam-mb-6 { margin-bottom: var(--space-6); }
+.sigam-mb-8 { margin-bottom: var(--space-8); }
+
+/* Padding */
+.sigam-p-0 { padding: 0; }
+.sigam-p-2 { padding: var(--space-2); }
+.sigam-p-4 { padding: var(--space-4); }
+.sigam-p-6 { padding: var(--space-6); }
+.sigam-p-8 { padding: var(--space-8); }
+
+.sigam-px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.sigam-px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.sigam-py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.sigam-py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }

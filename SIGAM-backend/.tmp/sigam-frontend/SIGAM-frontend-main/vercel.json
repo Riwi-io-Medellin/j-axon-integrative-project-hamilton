@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "src/view"
+      }
+    }
+  ],
+  "headers": [
+    {
+      "source": "/js/runtime-env.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/pages/login.html" },
+    { "source": "/login", "destination": "/pages/login.html" },
+    { "source": "/register", "destination": "/pages/register.html" },
+    { "source": "/dashboard", "destination": "/pages/dashboard.html" },
+    { "source": "/tickets", "destination": "/pages/tickets.html" },
+    { "source": "/inventory", "destination": "/pages/inventory.html" },
+    { "source": "/calendar", "destination": "/pages/calendar.html" },
+    { "source": "/reports", "destination": "/pages/reports.html" },
+    { "source": "/admin", "destination": "/pages/admin.html" }
+  ]
+}

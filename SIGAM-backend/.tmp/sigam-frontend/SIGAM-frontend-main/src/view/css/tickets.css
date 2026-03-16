@@ -1,0 +1,299 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    margin:auto;
+    margin-top:35px;
+}
+
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:32px;
+    margin-bottom:6px;
+}
+
+.subtitle{
+    color:#6b7280;
+    font-size:15px;
+}
+
+
+/* BOTON NUEVO TICKET */
+
+.btn-nuevo{
+    background:#020617;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.btn-nuevo:hover{
+    background:#111827;
+}
+
+
+/* FILTROS */
+
+.filters{
+    display:flex;
+    gap:20px;
+    background:white;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    margin-bottom:20px;
+}
+
+
+/* BUSCADOR */
+
+.search{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#f3f4f6;
+}
+
+
+/* SELECT */
+
+select{
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#f3f4f6;
+    min-width:180px;
+}
+
+
+/* CONTADOR */
+
+.contador{
+    margin-top:10px;
+    margin-bottom:20px;
+    color:#6b7280;
+    font-size:14px;
+}
+
+
+/* LISTA TICKETS */
+
+#ticketList{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+
+/* TARJETA TICKET */
+
+.ticket{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    border:1px solid #c1c1c2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+
+/* TITULO TICKET */
+
+.ticket-title{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+
+/* DESCRIPCION */
+
+.ticket-desc{
+    color:#4b5563;
+    margin-bottom:12px;
+}
+
+
+/* INFO EXTRA */
+
+.ticket-info{
+    font-size:13px;
+    color:#6b7280;
+}
+
+
+/* STATUS */
+
+.status{
+    float:right;
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:20px;
+}
+
+.status.progreso{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.status.pendiente{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.status.completado{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+
+/* FORMULARIO */
+
+#formContainer{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    margin-bottom:20px;
+}
+
+#formContainer input,
+#formContainer textarea,
+#formContainer select{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+#addTicket{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#addTicket:hover{
+    background:#1d4ed8;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 400px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.modal-content .input-error {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.field-error {
+    font-size: 12px;
+    color: #dc2626;
+    min-height: 16px;
+}
+
+.ticket-status {
+    font-size: 12px;
+    color: #6b7280;
+    min-height: 16px;
+}
+
+.modal-content button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.close {
+    align-self: flex-end;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+.delete-btn{
+    margin-top:10px;
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:13px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
+
+.delete-btn:active{
+    transform:scale(0.95);
+}

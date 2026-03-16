@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>Assets Inventory</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+
+  <!-- Bootstrap CSS: framework para diseño responsivo y componentes UI -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons: librería de iconos -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css"
+  />
+</head>
+
+<!-- Clase bg-light: fondo gris claro usando Bootstrap -->
+<body class="bg-light">
+
+  <!-- ========================= -->
+  <!-- NAVBAR / BARRA DE NAVEGACIÓN -->
+  <!-- ========================= -->
+
+  <!-- navbar-expand-lg: navbar responsive -->
+  <!-- bg-white: fondo blanco -->
+  <!-- border-bottom: línea inferior -->
+  <div id="app-navbar"></div>
+
+  <!-- ========================= -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <!-- ========================= -->
+
+  <div class="container py-4">
+
+    <!-- HEADER DE LA PÁGINA -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+      <!-- Título de la sección -->
+      <div>
+        <h2 class="fw-bold">Assets Inventory</h2>
+        <p class="text-muted">
+          Complete management of IT equipment and devices
+        </p>
+      </div>
+
+      <!-- Botón que abre el modal para crear un nuevo activo -->
+      <button
+        class="btn btn-dark"
+        data-bs-toggle="modal"
+        data-bs-target="#assetModal"
+      >
+        + New Asset
+      </button>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- MODAL PARA CREAR ASSETS -->
+    <!-- ========================= -->
+
+    <!-- modal fade: animación Bootstrap -->
+    <div class="modal fade" id="assetModal">
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Encabezado del modal -->
+          <div class="modal-header">
+            <h5 class="modal-title">New Asset</h5>
+
+            <!-- botón cerrar -->
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Formulario para guardar el activo -->
+          <form id="assetForm" novalidate>
+
+            <div class="modal-body">
+
+<div class="mb-3">
+<label class="form-label" for="name">Name</label>
+<input id="name" class="form-control" required>
+<div class="invalid-feedback">Name is required (min 3 characters).</div>
+</div>
+
+              <!-- Marca o modelo -->
+              <div class="mb-3">
+                <label class="form-label" for="brand">Brand / Model</label>
+                <input id="brand" class="form-control" required />
+                <div class="invalid-feedback">Brand / Model is required.</div>
+              </div>
+
+              <!-- Número serial -->
+              <div class="mb-3">
+                <label class="form-label" for="serial">Serial</label>
+                <input id="serial" class="form-control" required />
+                <div class="invalid-feedback">Serial is required and must be unique.</div>
+              </div>
+
+              <!-- Persona asignada -->
+              <div class="mb-3">
+                <label class="form-label" for="assigned">Assigned To</label>
+                <input id="assigned" class="form-control" />
+              </div>
+
+              <!-- Ubicación física -->
+              <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input id="location" class="form-control" required />
+                <div class="invalid-feedback">Location is required.</div>
+              </div>
+
+              <!-- Estado del activo -->
+              <div class="mb-3">
+                <label class="form-label" for="status">Status</label>
+                <select id="status" class="form-select" required>
+                  <option value="active">Active</option>
+                  <option value="maintenance">Maintenance</option>
+                </select>
+                <div class="invalid-feedback">Status is required.</div>
+              </div>
+
+              <!-- Tipo de equipo -->
+              <div class="mb-3">
+                <label class="form-label" for="type">Type</label>
+                <select id="type" class="form-select" required>
+                  <option value="laptop">Laptop</option>
+                  <option value="desktop">Desktop</option>
+                  <option value="server">Server</option>
+                  <option value="printer">Printer</option>
+                  <option value="monitor">Monitor</option>
+                </select>
+                <div class="invalid-feedback">Type is required.</div>
+              </div>
+
+              <!-- Garantía -->
+              <div class="mb-3">
+                <label class="form-label" for="warranty">Warranty</label>
+                <input id="warranty" class="form-control" required />
+                <div class="invalid-feedback">Warranty is required.</div>
+              </div>
+
+              <!-- Stock actual -->
+              <div class="mb-3">
+                <label class="form-label" for="stock">Stock</label>
+                <input id="stock" type="number" min="0" class="form-control" required />
+                <div class="invalid-feedback">Stock must be 0 or greater.</div>
+              </div>
+
+              <!-- Stock mínimo -->
+              <div class="mb-3">
+                <label class="form-label" for="minStock">Minimum Stock</label>
+                <input id="minStock" type="number" min="0" class="form-control" required />
+                <div class="invalid-feedback">Minimum Stock must be 0 or greater and not exceed Stock.</div>
+              </div>
+
+              <!-- Proveedor principal -->
+              <div class="mb-3">
+                <label class="form-label" for="supplierName">Supplier</label>
+                <input id="supplierName" class="form-control" />
+                <div class="invalid-feedback">Supplier name is required when supplier data is provided.</div>
+              </div>
+
+              <!-- Precio proveedor -->
+              <div class="mb-3">
+                <label class="form-label" for="supplierPrice">Supplier Price</label>
+                <input id="supplierPrice" type="number" min="0" class="form-control" />
+                <div class="invalid-feedback">Supplier price must be 0 or greater.</div>
+              </div>
+
+              <!-- Lead time proveedor -->
+              <div class="mb-3">
+                <label class="form-label" for="supplierLeadTime">Supplier Lead Time (days)</label>
+                <input id="supplierLeadTime" type="number" min="0" class="form-control" />
+                <div class="invalid-feedback">Lead time must be 0 or greater.</div>
+              </div>
+
+</div>
+
+            <!-- Botones del modal -->
+            <div class="modal-footer">
+
+              <!-- Cancelar -->
+              <button class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancel
+              </button>
+
+              <div class="me-auto small" id="assetFormStatus" aria-live="polite"></div>
+              <!-- Guardar activo -->
+              <button type="submit" class="btn btn-dark" id="assetSubmitBtn">
+                Save Asset
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- FILTROS DE BÚSQUEDA -->
+    <!-- ========================= -->
+
+    <div class="card p-3 mb-4">
+
+      <div class="row g-3">
+
+        <!-- Buscador -->
+        <div class="col-md-6">
+          <input
+            id="searchInput"
+            type="text"
+            class="form-control"
+            placeholder="Search by name, serial, brand..."
+          />
+        </div>
+
+        <!-- Filtro por estado -->
+        <div class="col-md-3">
+          <select id="statusFilter" class="form-select">
+            <option value="all">All Status</option>
+            <option value="active">Active</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="repair">Repair</option>
+          </select>
+        </div>
+
+        <!-- Filtro por categoria -->
+        <div class="col-md-3">
+          <select id="typeFilter" class="form-select">
+            <option value="all">All Categories</option>
+            <option value="laptop">Laptop</option>
+            <option value="desktop">Desktop</option>
+            <option value="server">Server</option>
+            <option value="printer">Printer</option>
+            <option value="monitor">Monitor</option>
+          </select>
+        </div>
+
+        <!-- Filtro por ubicacion -->
+        <div class="col-md-3">
+          <select id="locationFilter" class="form-select">
+            <option value="all">All Locations</option>
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Aquí JS mostrará cuántos resultados hay -->
+    <p id="resultCount" class="text-muted"></p>
+
+    <!-- ========================= -->
+    <!-- TABLA DE STOCK -->
+    <!-- ========================= -->
+
+    <div class="card p-3 mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Stock Table</h5>
+        <small class="text-muted">Alert when stock is below minimum</small>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-sm align-middle">
+          <thead>
+            <tr>
+              <th>Asset</th>
+              <th>Type</th>
+              <th>Location</th>
+              <th class="text-end">Stock</th>
+              <th class="text-end">Min Stock</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="stockTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- VISTA COMPARATIVA PROVEEDORES -->
+    <!-- ========================= -->
+
+    <div class="card p-3 mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Suppliers Comparison</h5>
+        <small class="text-muted">Cards by supplier</small>
+      </div>
+
+      <div class="row g-3" id="supplierCards"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- GRID DE EQUIPOS -->
+    <!-- ========================= -->
+
+    <!-- Aquí JavaScript renderiza dinámicamente las tarjetas de equipos -->
+    <div class="row g-4" id="assetGrid"></div>
+
+  </div>
+
+  <!-- ========================= -->
+  <!-- MODAL EDITAR ASSET -->
+  <!-- ========================= -->
+
+  <div class="modal fade" id="assetEditModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Asset</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <form id="assetEditForm">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Name</label>
+                <input id="editName" class="form-control" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Brand / Model</label>
+                <input id="editBrand" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Serial</label>
+                <input id="editSerial" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Assigned To</label>
+                <input id="editAssigned" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Location</label>
+                <input id="editLocation" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Status</label>
+                <select id="editStatus" class="form-select">
+                  <option value="active">Active</option>
+                  <option value="maintenance">Maintenance</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Type</label>
+                <select id="editType" class="form-select">
+                  <option value="laptop">Laptop</option>
+                  <option value="desktop">Desktop</option>
+                  <option value="server">Server</option>
+                  <option value="printer">Printer</option>
+                  <option value="monitor">Monitor</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Warranty</label>
+                <input id="editWarranty" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Stock</label>
+                <input id="editStock" type="number" min="0" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Minimum Stock</label>
+                <input id="editMinStock" type="number" min="0" class="form-control" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Supplier</label>
+                <input id="editSupplierName" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Supplier Price</label>
+                <input id="editSupplierPrice" type="number" min="0" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Supplier Lead Time (days)</label>
+                <input id="editSupplierLeadTime" type="number" min="0" class="form-control" />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-dark">Save Changes</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!-- MODAL EDITAR PROVEEDOR -->
+  <!-- ========================= -->
+
+  <div class="modal fade" id="supplierModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Supplier</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <form id="supplierForm">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Supplier Name</label>
+              <input id="supplierEditName" class="form-control" />
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-sm align-middle">
+                <thead>
+                  <tr>
+                    <th>Asset</th>
+                    <th class="text-end">Price</th>
+                    <th class="text-end">Lead Time (days)</th>
+                  </tr>
+                </thead>
+                <tbody id="supplierEditRows"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-dark">Save Changes</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+    <script src="../services/navbar.js"></script>
+    <script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script>
+    window.SIGAM_PAGE_ROLES = ["Gerente", "Analista"];
+    </script>
+    <script src="../services/auth-guard.js"></script>
+<!-- Bootstrap JS (necesario para modals, dropdowns, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script donde está la lógica del inventario -->
+  <script src="../js/inventory.js"></script>
+
+</body>
+</html>

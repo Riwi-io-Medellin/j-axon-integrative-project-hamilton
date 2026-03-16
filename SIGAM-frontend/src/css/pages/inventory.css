@@ -1,0 +1,403 @@
+/* ==========================================================================
+   SIGAM - Inventory Page Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+body.page-inventory {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+body.page-inventory .container {
+  max-width: var(--container-xl);
+  margin: auto;
+  padding: var(--space-10) var(--space-5);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+body.page-inventory .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+body.page-inventory .header h1 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+body.page-inventory .header p {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+body.page-inventory .btn {
+  font-weight: var(--font-semibold);
+}
+
+body.page-inventory .btn.btn-dark {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+body.page-inventory .btn.btn-dark:hover {
+  background: var(--color-slate-800);
+}
+
+/* ==========================================================================
+   FILTER BAR
+   ========================================================================== */
+
+body.page-inventory .filters {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+body.page-inventory .filters input,
+body.page-inventory .filters select {
+  padding: var(--space-3);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  font-size: var(--text-sm);
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+body.page-inventory .filters input:focus,
+body.page-inventory .filters select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+body.page-inventory .filters input {
+  flex: 1;
+}
+
+/* ==========================================================================
+   GRID
+   ========================================================================== */
+
+body.page-inventory .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+body.page-inventory #assetGrid {
+  margin-top: var(--space-2);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--space-6);
+  column-gap: var(--space-6);
+}
+
+body.page-inventory #assetListView {
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+body.page-inventory .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-5);
+}
+
+body.page-inventory .asset-card {
+  border-left: 4px solid transparent;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-fast);
+  border-radius: var(--card-radius);
+}
+
+body.page-inventory .asset-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+body.page-inventory .asset-card.status-ok {
+  border-left-color: var(--color-success);
+}
+
+body.page-inventory .asset-card.status-warning {
+  border-left-color: var(--color-warning);
+}
+
+body.page-inventory .asset-card .card-body {
+  padding: var(--space-5);
+}
+
+body.page-inventory .asset-card h5 {
+  font-size: var(--text-lg);
+  line-height: 1.2;
+  margin-bottom: var(--space-1);
+}
+
+body.page-inventory .asset-card hr {
+  margin: var(--space-3) 0;
+}
+
+body.page-inventory .asset-card p {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+body.page-inventory .asset-card p strong {
+  display: block;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+body.page-inventory .asset-card-header {
+  gap: var(--space-2);
+}
+
+body.page-inventory .asset-card-header .btn {
+  padding: 2px 10px;
+  font-size: var(--text-xs);
+  line-height: 1.2;
+}
+
+body.page-inventory .card h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-1);
+  color: var(--text-primary);
+}
+
+body.page-inventory .asset-id {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+}
+
+body.page-inventory .info {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+  color: var(--text-secondary);
+}
+
+body.page-inventory .label {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+body.page-inventory .footer {
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   SCROLL CONTAINERS
+   ========================================================================== */
+
+body.page-inventory .inventory-scroll {
+  display: flex;
+  flex-direction: column;
+}
+
+body.page-inventory .inventory-scroll-body,
+body.page-inventory #stockTableBody {
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
+body.page-inventory #stockTableBody {
+  display: block;
+}
+
+body.page-inventory #stockTableBody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+body.page-inventory #stockTableBody td {
+  word-wrap: break-word;
+}
+
+body.page-inventory #stockTable thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* ==========================================================================
+   SUPPLIER CARDS
+   ========================================================================== */
+
+body.page-inventory #supplierCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  padding-right: var(--space-2);
+}
+
+/* ==========================================================================
+   TABLE STYLES
+   ========================================================================== */
+
+body.page-inventory .asset-row,
+body.page-inventory .supplier-table tbody tr {
+  border-left: 4px solid transparent;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast);
+}
+
+body.page-inventory .asset-row.status-ok {
+  border-left-color: var(--color-success);
+}
+
+body.page-inventory .asset-row.status-warning {
+  border-left-color: var(--color-warning);
+}
+
+body.page-inventory .asset-row:hover {
+  background: var(--table-row-hover);
+}
+
+body.page-inventory #assetListView table,
+body.page-inventory .supplier-table {
+  border-collapse: separate;
+  border-spacing: 0 var(--space-2);
+  width: 100%;
+}
+
+body.page-inventory #assetListView tbody tr td,
+body.page-inventory .supplier-table tbody td {
+  padding: var(--space-3) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   STATUS BADGES
+   ========================================================================== */
+
+body.page-inventory .badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+}
+
+body.page-inventory .status-active {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+body.page-inventory .maintenance {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+body.page-inventory .expired {
+  color: var(--color-danger);
+}
+
+body.page-inventory .warning {
+  color: var(--color-warning);
+}
+
+/* ==========================================================================
+   STOCK FLASH ANIMATION
+   ========================================================================== */
+
+body.page-inventory .stock-flash {
+  animation: stockFlash 0.9s ease-in-out;
+}
+
+@keyframes stockFlash {
+  0% { box-shadow: 0 0 0 rgba(34, 197, 94, 0); }
+  30% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35); }
+  100% { box-shadow: 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* ==========================================================================
+   RESULT COUNT
+   ========================================================================== */
+
+body.page-inventory .result {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ==========================================================================
+   DETAIL PAGE
+   ========================================================================== */
+
+body.page-inventory #mainContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+body.page-inventory #mainContent .card p {
+  margin-bottom: var(--space-2);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  body.page-inventory .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  body.page-inventory .filters {
+    flex-direction: column;
+  }
+  
+  body.page-inventory .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+@media (min-width: 768px) {
+  body.page-inventory #assetGrid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  body.page-inventory #assetGrid {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+  }
+}

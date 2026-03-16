@@ -1,0 +1,380 @@
+/* ==========================================================================
+   SIGAM - Form Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   FORM LAYOUT
+   ========================================================================== */
+
+.sigam-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sigam-form-row {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.sigam-form-row > * {
+  flex: 1;
+}
+
+.sigam-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sigam-form-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ==========================================================================
+   LABELS
+   ========================================================================== */
+
+.sigam-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.sigam-label-required::after {
+  content: ' *';
+  color: var(--color-danger);
+}
+
+.sigam-label-optional::after {
+  content: ' (opcional)';
+  color: var(--text-muted);
+  font-weight: var(--font-normal);
+  font-size: var(--text-xs);
+}
+
+/* ==========================================================================
+   INPUT BASE
+   ========================================================================== */
+
+.sigam-input {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sigam-input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.sigam-input:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.sigam-input::placeholder {
+  color: var(--color-slate-400);
+}
+
+/* Input sizes */
+.sigam-input-sm {
+  height: var(--btn-height-sm);
+  font-size: var(--text-xs);
+  padding: 0 var(--space-2);
+}
+
+.sigam-input-lg {
+  height: var(--btn-height-lg);
+  font-size: var(--text-base);
+  padding: 0 var(--space-4);
+}
+
+/* Input states */
+.sigam-input-error {
+  border-color: var(--color-danger);
+}
+
+.sigam-input-error:focus {
+  box-shadow: 0 0 0 3px var(--color-danger-light);
+}
+
+.sigam-input-success {
+  border-color: var(--color-success);
+}
+
+.sigam-input-success:focus {
+  box-shadow: 0 0 0 3px var(--color-success-light);
+}
+
+/* ==========================================================================
+   TEXTAREA
+   ========================================================================== */
+
+.sigam-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  resize: vertical;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sigam-textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+/* ==========================================================================
+   SELECT
+   ========================================================================== */
+
+.sigam-select {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--space-8) 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sigam-select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+/* ==========================================================================
+   CHECKBOX & RADIO
+   ========================================================================== */
+
+.sigam-checkbox-group,
+.sigam-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sigam-checkbox-group.horizontal,
+.sigam-radio-group.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.sigam-checkbox,
+.sigam-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.sigam-checkbox input,
+.sigam-radio input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-primary-600);
+}
+
+.sigam-checkbox-label,
+.sigam-radio-label {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  user-select: none;
+}
+
+/* ==========================================================================
+   INPUT WITH ICON
+   ========================================================================== */
+
+.sigam-input-icon-wrapper {
+  position: relative;
+}
+
+.sigam-input-icon-wrapper .sigam-input {
+  padding-left: var(--space-10);
+}
+
+.sigam-input-icon-wrapper.icon-right .sigam-input {
+  padding-left: var(--space-3);
+  padding-right: var(--space-10);
+}
+
+.sigam-input-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sigam-input-icon-wrapper.icon-right .sigam-input-icon {
+  left: auto;
+  right: var(--space-3);
+}
+
+/* ==========================================================================
+   INPUT GROUP (Addon)
+   ========================================================================== */
+
+.sigam-input-group {
+  display: flex;
+}
+
+.sigam-input-group .sigam-input {
+  border-radius: 0;
+  flex: 1;
+}
+
+.sigam-input-group .sigam-input:first-child {
+  border-radius: var(--input-radius) 0 0 var(--input-radius);
+}
+
+.sigam-input-group .sigam-input:last-child {
+  border-radius: 0 var(--input-radius) var(--input-radius) 0;
+}
+
+.sigam-input-addon {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--input-border);
+  white-space: nowrap;
+}
+
+.sigam-input-addon:first-child {
+  border-right: none;
+  border-radius: var(--input-radius) 0 0 var(--input-radius);
+}
+
+.sigam-input-addon:last-child {
+  border-left: none;
+  border-radius: 0 var(--input-radius) var(--input-radius) 0;
+}
+
+/* ==========================================================================
+   HELP TEXT & ERRORS
+   ========================================================================== */
+
+.sigam-help-text {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.sigam-error-text {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+/* ==========================================================================
+   FORM ACTIONS
+   ========================================================================== */
+
+.sigam-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+}
+
+.sigam-form-actions.justify-start {
+  justify-content: flex-start;
+}
+
+.sigam-form-actions.justify-between {
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   SEARCH INPUT
+   ========================================================================== */
+
+.sigam-search {
+  position: relative;
+}
+
+.sigam-search .sigam-input {
+  padding-left: var(--space-10);
+  padding-right: var(--space-10);
+}
+
+.sigam-search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sigam-search-clear {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: var(--color-slate-200);
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+}
+
+.sigam-search-clear:hover {
+  background: var(--color-slate-300);
+}
+
+.sigam-search.has-value .sigam-search-clear {
+  display: flex;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .sigam-form-row {
+    flex-direction: column;
+  }
+}

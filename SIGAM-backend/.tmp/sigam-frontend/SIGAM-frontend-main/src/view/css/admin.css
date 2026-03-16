@@ -1,0 +1,20 @@
+.card{
+border-radius:14px;
+}
+
+.table td{
+vertical-align:middle;
+}
+
+.nav-pills .nav-link.active{
+background:#f1f5f9;
+color:#000;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.table td{
+vertical-align:middle;
+}

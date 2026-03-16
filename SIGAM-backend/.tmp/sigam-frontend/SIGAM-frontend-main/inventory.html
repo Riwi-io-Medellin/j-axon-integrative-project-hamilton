@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assets Inventory</title>
+
+<!-- BOOTSTRAP -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+
+<div class="container">
+
+<a class="navbar-brand d-flex align-items-center gap-2" href="#">
+
+<div class="bg-primary text-white rounded d-flex justify-content-center align-items-center" style="width:35px;height:35px;">
+J
+</div>
+
+<div>
+<strong>J-AXON</strong><br>
+<small class="text-muted">Anticipate the failure</small>
+</div>
+
+</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-4">
+
+<li class="nav-item">
+<a class="nav-link" href="#">Dashboard</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active fw-bold text-primary" href="#">Inventory</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Tickets</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Calendar</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Reports</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Admin</a>
+</li>
+
+</ul>
+
+<div class="ms-auto d-flex align-items-center gap-3">
+
+<div class="text-end">
+
+<div class="fw-semibold">Juan Pablo Cano</div>
+
+<small class="text-muted">jp.cano@empresa.com</small>
+
+</div>
+
+<span class="badge bg-purple text-dark border">
+Admin
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- CONTENT -->
+
+<div class="container py-4">
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+<div>
+
+<h2 class="fw-bold">Assets Inventory</h2>
+
+<p class="text-muted">
+Complete management of IT equipment and devices
+</p>
+
+</div>
+
+<button class="btn btn-dark">
++ New Asset
+</button>
+
+</div>
+
+
+<!-- FILTER BAR -->
+
+<div class="card p-3 mb-4">
+
+<div class="row g-3">
+
+<div class="col-md-6">
+
+<input
+id="searchInput"
+type="text"
+class="form-control"
+placeholder="Search by name, serial, brand..."
+>
+
+</div>
+
+<div class="col-md-3">
+
+<select id="statusFilter" class="form-select">
+
+<option value="all">All Status</option>
+<option value="active">Active</option>
+<option value="maintenance">Maintenance</option>
+
+</select>
+
+</div>
+
+<div class="col-md-3">
+
+<select id="typeFilter" class="form-select">
+
+<option value="all">All Types</option>
+<option value="laptop">Laptop</option>
+<option value="desktop">Desktop</option>
+<option value="server">Server</option>
+<option value="printer">Printer</option>
+<option value="monitor">Monitor</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+
+<p id="resultCount" class="text-muted"></p>
+
+
+<!-- GRID -->
+
+<div class="row g-4" id="assetGrid">
+
+</div>
+
+</div>
+
+
+<script>
+
+const assets = [
+
+{
+name:"Dell Latitude 7420 Laptop",
+id:"AST-001",
+brand:"Dell Latitude 7420",
+serial:"DL7420-2023-001",
+assigned:"Maria Garcia",
+location:"Central Building - Floor 3",
+status:"active",
+type:"laptop",
+warranty:"expired"
+},
+
+{
+name:"HP EliteDesk 800 G6",
+id:"AST-002",
+brand:"HP EliteDesk 800 G6",
+serial:"HP800-2022-045",
+assigned:"Pedro Ramirez",
+location:"Central Building - Floor 2",
+status:"maintenance",
+type:"desktop",
+warranty:"expired"
+},
+
+{
+name:"Dell PowerEdge R740 Server",
+id:"AST-003",
+brand:"Dell PowerEdge R740",
+serial:"DL-R740-2021-001",
+assigned:"",
+location:"Data Center - Floor 1",
+status:"active",
+type:"server",
+warranty:"3 days"
+}
+
+]
+
+const grid = document.getElementById("assetGrid")
+const searchInput = document.getElementById("searchInput")
+const statusFilter = document.getElementById("statusFilter")
+const typeFilter = document.getElementById("typeFilter")
+const resultCount = document.getElementById("resultCount")
+
+
+function renderAssets(list){
+
+grid.innerHTML=""
+
+list.forEach(asset=>{
+
+let badge="bg-success"
+
+if(asset.status==="maintenance"){
+badge="bg-warning text-dark"
+}
+
+grid.innerHTML+=`
+
+<div class="col-md-4">
+
+<div class="card shadow-sm h-100">
+
+<div class="card-body">
+
+<h5 class="fw-bold">${asset.name}</h5>
+
+<small class="text-muted">${asset.id}</small>
+
+<hr>
+
+<p><strong>Brand / Model</strong><br>${asset.brand}</p>
+
+<p><strong>Serial</strong><br>${asset.serial}</p>
+
+<p><strong>Assigned To</strong><br>${asset.assigned}</p>
+
+<p><strong>Location</strong><br>${asset.location}</p>
+
+<div class="d-flex justify-content-between">
+
+<span class="badge ${badge}">
+${asset.status}
+</span>
+
+<small class="text-danger">
+Warranty ${asset.warranty}
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`
+
+})
+
+resultCount.innerText=`Showing ${list.length} of ${assets.length} assets`
+
+}
+
+
+function filterAssets(){
+
+const search = searchInput.value.toLowerCase()
+const status = statusFilter.value
+const type = typeFilter.value
+
+let filtered = assets.filter(asset=>{
+
+const matchSearch =
+asset.name.toLowerCase().includes(search) ||
+asset.serial.toLowerCase().includes(search) ||
+asset.brand.toLowerCase().includes(search)
+
+const matchStatus =
+status==="all" || asset.status===status
+
+const matchType =
+type==="all" || asset.type===type
+
+return matchSearch && matchStatus && matchType
+
+})
+
+renderAssets(filtered)
+
+}
+
+searchInput.addEventListener("input",filterAssets)
+statusFilter.addEventListener("change",filterAssets)
+typeFilter.addEventListener("change",filterAssets)
+
+renderAssets(assets)
+
+</script>
+<script src="inventory.js"></script>
+</body>
+</html>

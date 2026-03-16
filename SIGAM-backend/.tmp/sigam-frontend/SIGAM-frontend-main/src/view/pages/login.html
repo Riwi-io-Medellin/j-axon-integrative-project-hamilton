@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>login</h2>
+
+    <form id="loginForm" novalidate>
+        <input type="email" id="email" placeholder="email" required>
+        <input type="password" id="password" placeholder="password" required>
+        <div id="loginStatus" aria-live="polite"></div>
+        <button id="loginBtn" type="submit">enter</button>
+    </form>
+
+    <p>Don't you have an account?
+    <a href="/register">Register</a>
+    </p>
+</div>
+
+<script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/login.js"></script>
+</body>
+</html>

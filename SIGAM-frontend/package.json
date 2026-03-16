@@ -1,0 +1,41 @@
+{
+  "name": "sigam-frontend",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.20",
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/interaction": "^6.1.20",
+    "@fullcalendar/list": "^6.1.20",
+    "@fullcalendar/timegrid": "^6.1.20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:env": "node scripts/build-env.js",
+    "build": "pnpm run build:env && vite build",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.0",
+    "vite": "^8.0.0",
+    "vitest": "^1.6.0"
+  },
+  "version": "1.0.0",
+  "description": "Frontend estatico de SIGAM (HTML, CSS y JavaScript vanilla). Este repo consume un backend REST y se despliega como sitio estatico en Vercel.",
+  "main": "vitest.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpgcano/SIGAM-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpgcano/SIGAM-frontend/issues"
+  },
+  "homepage": "https://github.com/jpgcano/SIGAM-frontend#readme"
+}

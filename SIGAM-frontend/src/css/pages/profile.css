@@ -1,0 +1,176 @@
+/* ==========================================================================
+   SIGAM - Profile Page Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+body.page-profile {
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   PROFILE CARD
+   ========================================================================== */
+
+body.page-profile .profile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: var(--space-6);
+}
+
+body.page-profile .profile-card .form-control[readonly] {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   PROFILE HEADER
+   ========================================================================== */
+
+body.page-profile .profile-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+}
+
+body.page-profile .profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary-600);
+  overflow: hidden;
+}
+
+body.page-profile .profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.page-profile .profile-info h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+body.page-profile .profile-info p {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   FORM SECTIONS
+   ========================================================================== */
+
+body.page-profile .profile-section {
+  margin-bottom: var(--space-6);
+}
+
+body.page-profile .profile-section h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+body.page-profile .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+body.page-profile .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+body.page-profile label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+body.page-profile input,
+body.page-profile select {
+  padding: var(--space-3);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  font-size: var(--text-sm);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+body.page-profile input:focus,
+body.page-profile select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+/* ==========================================================================
+   PASSWORD STATUS
+   ========================================================================== */
+
+body.page-profile #passwordStatus {
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+body.page-profile #passwordStatus.text-success {
+  color: var(--color-success) !important;
+}
+
+body.page-profile #passwordStatus.text-danger {
+  color: var(--color-danger) !important;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+body.page-profile .profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  body.page-profile .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  body.page-profile .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  body.page-profile .profile-actions {
+    flex-direction: column;
+  }
+  
+  body.page-profile .profile-actions button {
+    width: 100%;
+  }
+}

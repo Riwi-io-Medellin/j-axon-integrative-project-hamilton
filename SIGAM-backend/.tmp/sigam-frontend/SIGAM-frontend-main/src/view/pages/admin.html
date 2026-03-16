@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ========================================= -->
+  <!-- CONFIGURACIÓN BÁSICA DEL DOCUMENTO HTML -->
+  <!-- ========================================= -->
+
+  <!-- Codificación de caracteres -->
+  <meta charset="UTF-8">
+
+  <!-- Hace que el diseño sea responsive en móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>J-AXON | Admin</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+
+  <!-- ========================================= -->
+  <!-- LIBRERÍAS Y ESTILOS -->
+  <!-- ========================================= -->
+
+  <!-- Framework Bootstrap para diseño y componentes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Librería de iconos Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Hoja de estilos personalizada del panel admin -->
+  <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body>
+
+  <!-- ========================================= -->
+  <!-- NAVBAR (MENÚ PRINCIPAL DEL SISTEMA) -->
+  <!-- ========================================= -->
+
+  <div id="app-navbar"></div>
+
+
+  <!-- ========================================= -->
+  <!-- CONTENIDO PRINCIPAL DEL PANEL ADMIN -->
+  <!-- ========================================= -->
+
+  <div class="p-4 bg-light min-vh-100">
+
+    <!-- Encabezado de la página -->
+    <div class="mb-4">
+
+      <h4 class="fw-bold mb-1">Administration Panel</h4>
+
+      <small class="text-muted">
+        System management
+      </small>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- TARJETAS DE ESTADÍSTICAS DEL SISTEMA -->
+    <!-- ========================================= -->
+
+    <div class="row g-4 mb-4">
+
+      <!-- Total de usuarios -->
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 rounded-4">
+
+          <div class="d-flex justify-content-between">
+
+            <div>
+              <small class="text-muted">Total Users</small>
+              <h4 id="statUsers" class="fw-bold mt-2">0</h4>
+            </div>
+
+            <i class="bi bi-people text-primary fs-4"></i>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Activos gestionados -->
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 rounded-4">
+
+          <div class="d-flex justify-content-between">
+
+            <div>
+              <small class="text-muted">Managed Assets</small>
+              <h4 id="statAssets" class="fw-bold mt-2">0</h4>
+            </div>
+
+            <i class="bi bi-hdd-stack text-primary fs-4"></i>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Tickets pendientes -->
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 rounded-4">
+
+          <div class="d-flex justify-content-between">
+
+            <div>
+              <small class="text-muted">Pending Tickets</small>
+              <h4 id="statTickets" class="fw-bold mt-2">0</h4>
+            </div>
+
+            <i class="bi bi-ticket text-primary fs-4"></i>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Estado del sistema -->
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 rounded-4">
+
+          <div class="d-flex justify-content-between">
+
+            <div>
+              <small class="text-muted">System Status</small>
+              <h5 class="fw-bold text-success mt-2">Optimal</h5>
+              <small class="text-muted">99.8% uptime</small>
+            </div>
+
+            <i class="bi bi-bar-chart text-primary fs-4"></i>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- MENÚ DE CONFIGURACIÓN DEL ADMIN -->
+    <!-- ========================================= -->
+
+    <ul class="nav nav-pills mb-4">
+
+      <li class="nav-item">
+        <button class="nav-link active">Users</button>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link">Configuration</button>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link">Security</button>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link">Backup</button>
+      </li>
+
+    </ul>
+
+
+    <!-- ========================================= -->
+    <!-- TABLA DE GESTIÓN DE USUARIOS -->
+    <!-- ========================================= -->
+
+    <div class="card border-0 shadow-sm rounded-4 p-4">
+
+      <!-- Encabezado de la tabla -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <h6 class="fw-semibold mb-0">
+          User Management
+        </h6>
+
+        <!-- Botón para crear nuevo usuario -->
+        <button class="btn btn-dark rounded-pill px-3"
+                data-bs-toggle="modal"
+                data-bs-target="#userModal">
+          + New User
+        </button>
+
+      </div>
+
+
+      <!-- Barra de búsqueda y filtros -->
+      <div class="row mb-3">
+
+        <!-- Buscador -->
+        <div class="col-md-6">
+
+          <div class="input-group">
+
+            <span class="input-group-text">
+              <i class="bi bi-search"></i>
+            </span>
+
+            <input id="searchInput"
+                   type="text"
+                   class="form-control"
+                   placeholder="Search users...">
+
+          </div>
+
+        </div>
+
+        <!-- Filtro por rol -->
+        <div class="col-md-3">
+
+          <select class="form-select">
+
+            <option>All Roles</option>
+            <option>Administrator</option>
+            <option>Technician</option>
+            <option>User</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- Tabla de usuarios -->
+      <div class="table-responsive">
+
+        <table class="table align-middle">
+
+          <thead class="text-muted">
+
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Last Access</th>
+              <th>Actions</th>
+            </tr>
+
+          </thead>
+
+          <!-- Aquí se insertan los usuarios dinámicamente con JavaScript -->
+          <tbody id="userTable"></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- MODAL PARA CREAR / EDITAR USUARIOS -->
+  <!-- ========================================= -->
+
+  <div class="modal fade" id="userModal">
+
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <!-- Título del modal -->
+        <div class="modal-header">
+          <h5 class="modal-title">User</h5>
+        </div>
+
+        <!-- Campos del formulario -->
+        <div class="modal-body">
+
+          <input id="name" class="form-control mb-2" placeholder="Name">
+
+          <input id="email" class="form-control mb-2" placeholder="Email">
+
+          <select id="role" class="form-select">
+            <option>User</option>
+            <option>Technician</option>
+            <option>Administrator</option>
+          </select>
+
+          <!-- Campo oculto usado para editar usuarios -->
+          <input type="hidden" id="editIndex">
+
+        </div>
+
+        <!-- Botones -->
+        <div class="modal-footer">
+
+          <button class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancel
+          </button>
+
+          <button class="btn btn-dark" onclick="saveUser()">
+            Save
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- SCRIPTS DEL SISTEMA -->
+  <!-- ========================================= -->
+
+  <!-- Bootstrap JS -->
+  <script src="../services/navbar.js"></script>
+  <script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script>
+  window.SIGAM_PAGE_ROLES = ["Gerente", "Auditor"];
+  </script>
+  <script src="../services/auth-guard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script que controla la lógica del panel admin -->
+  <script src="../js/admin.js"></script>
+
+</body>
+
+</html>

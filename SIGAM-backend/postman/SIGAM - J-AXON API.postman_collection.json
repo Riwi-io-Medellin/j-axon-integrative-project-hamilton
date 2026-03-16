@@ -1,0 +1,2561 @@
+﻿{
+  "info": {
+    "_postman_id": "29615e5c-b060-4d1a-a34c-7c360494b070",
+    "name": "SIGAM - J-AXON API",
+    "description": "ColecciÃ³n completa de endpoints para el sistema SIGAM. Base URL: [https://sigam-backend.vercel.app/api](https://sigam-backend.vercel.app/api)\n\nFlujo recomendado:\n\n1. POST /auth/login â†’ copiar token\n    \n2. Usar token en Authorization: Bearer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52588757",
+    "_collection_link": "https://go.postman.co/collection/52588757-29615e5c-b060-4d1a-a34c-7c360494b070?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register Gerente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Gerente SIGAM\",\n  \"email\": \"{{email_gerente}}\",\n  \"password\": \"{{password_default}}\",\n  \"rol\": \"Gerente\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Registro OK\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Respuesta JSON\", function () {",
+                  "  pm.response.to.be.json;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register Analista",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Analista SIGAM\",\n  \"email\": \"{{email_analista}}\",\n  \"password\": \"{{password_default}}\",\n  \"rol\": \"Analista\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Registro OK\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Respuesta JSON\", function () {",
+                  "  pm.response.to.be.json;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register Técnico",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Tecnico SIGAM\",\n  \"email\": \"{{email_tecnico}}\",\n  \"password\": \"{{password_default}}\",\n  \"rol\": \"Técnico\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Registro OK\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Respuesta JSON\", function () {",
+                  "  pm.response.to.be.json;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Usuario SIGAM\",\n  \"email\": \"{{email_usuario}}\",\n  \"password\": \"{{password_default}}\",\n  \"rol\": \"Usuario\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Registro OK\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Respuesta JSON\", function () {",
+                  "  pm.response.to.be.json;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Register Auditor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Auditor SIGAM\",\n  \"email\": \"{{email_auditor}}\",\n  \"password\": \"{{password_default}}\",\n  \"rol\": \"Auditor\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Registro OK\", function () {",
+                  "  pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Respuesta JSON\", function () {",
+                  "  pm.response.to.be.json;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login Gerente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_gerente}}\",\n  \"password\": \"{{password_default}}\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login OK\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "const data = pm.response.json();",
+                  "pm.test(\"Token presente\", function () {",
+                  "  pm.expect(data.token).to.be.a(\"string\");",
+                  "});",
+                  "pm.collectionVariables.set('token_gerente', data.token);",
+                  "pm.collectionVariables.set('token', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login Analista",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_analista}}\",\n  \"password\": \"{{password_default}}\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login OK\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "const data = pm.response.json();",
+                  "pm.test(\"Token presente\", function () {",
+                  "  pm.expect(data.token).to.be.a(\"string\");",
+                  "});",
+                  "pm.collectionVariables.set('token_analista', data.token);",
+                  "pm.collectionVariables.set('token', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login Tecnico",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_tecnico}}\",\n  \"password\": \"{{password_default}}\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login OK\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "const data = pm.response.json();",
+                  "pm.test(\"Token presente\", function () {",
+                  "  pm.expect(data.token).to.be.a(\"string\");",
+                  "});",
+                  "pm.collectionVariables.set('token_tecnico', data.token);",
+                  "pm.collectionVariables.set('token', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_usuario}}\",\n  \"password\": \"{{password_default}}\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login OK\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "const data = pm.response.json();",
+                  "pm.test(\"Token presente\", function () {",
+                  "  pm.expect(data.token).to.be.a(\"string\");",
+                  "});",
+                  "pm.collectionVariables.set('token_usuario', data.token);",
+                  "pm.collectionVariables.set('token', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login Auditor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email_auditor}}\",\n  \"password\": \"{{password_default}}\"\n}"
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Login OK\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "const data = pm.response.json();",
+                  "pm.test(\"Token presente\", function () {",
+                  "  pm.expect(data.token).to.be.a(\"string\");",
+                  "});",
+                  "pm.collectionVariables.set('token_auditor', data.token);",
+                  "pm.collectionVariables.set('token', data.token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET Admin Panel",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/admin-panel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "admin-panel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Configuracion",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/configuracion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "configuracion"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Perfil",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/perfil",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "perfil"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ðŸ“ Ubicaciones",
+      "item": [
+        {
+          "name": "GET Todas las ubicaciones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ubicaciones",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ubicaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Ubicacion por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ubicaciones/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ubicaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Ubicacion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sede\": \"Sede Principal Riwi\",\n  \"piso\": \"Piso 2\",\n  \"sala\": \"Sala de Desarrollo\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ubicaciones",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ubicaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Ubicacion",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sala\": \"Sala de QA\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ubicaciones/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ubicaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Ubicacion",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ubicaciones/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ubicaciones",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ðŸ¢ Proveedores",
+      "item": [
+        {
+          "name": "GET Todos los proveedores",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/proveedores",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "proveedores"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Proveedor por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/proveedores/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "proveedores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Proveedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"TechSupply SAS\",\n  \"contacto\": \"ventas@techsupply.co\",\n  \"identificacion_legal\": \"900123456-1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/proveedores",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "proveedores"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Proveedor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contacto\": \"soporte@techsupply.co\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/proveedores/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "proveedores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Proveedor",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/proveedores/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "proveedores",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ðŸ’» Activos (HU-01)",
+      "item": [
+        {
+          "name": "GET Todos los activos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/activos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Activo por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/activos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Historial (Hoja de vida) - HU-10",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/activos/1/historial",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos",
+                "1",
+                "historial"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Activo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"serial\": \"MON-2024-001\",\n  \"modelo\": \"Dell UltraSharp 24\",\n  \"fecha_compra\": \"2024-01-15\",\n  \"vida_util\": 48,\n  \"nivel_criticidad\": \"Alta\",\n  \"especificaciones_electricas\": \"110V / 60Hz / 1.5A (NTC 2050)\",\n  \"id_ubicacion\": 1,\n  \"id_categoria\": 1,\n  \"id_proveedor\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/activos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Activo",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nivel_criticidad\": \"CrÃ­tica\",\n  \"id_ubicacion\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/activos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Baja Segura Activo (ISO 27001) - HU-10",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"motivo_baja\": \"Equipo obsoleto - superÃ³ vida Ãºtil de 48 meses\",\n  \"certificado_borrado\": \"CERT-ISO27001-2024-001\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/activos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "activos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ðŸ”© Repuestos (HU-08 / HU-09)",
+      "item": [
+        {
+          "name": "GET Todos los repuestos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Repuestos bajo stock âš ï¸",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos/bajo-stock",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "bajo-stock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Repuesto por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Repuesto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Fuente de Poder 12V\",\n  \"stock\": 10,\n  \"stock_minimo\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/repuestos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Repuesto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stock\": 15,\n  \"stock_minimo\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/repuestos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Repuesto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ðŸ“¦ Licencias (HU-03)",
+      "item": [
+        {
+          "name": "GET Todas las licencias",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/licencias",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Licencia por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/licencias/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Asignaciones de licencia",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/licencias/1/asignaciones",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "1",
+                "asignaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Licencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_software\": 1,\n  \"clave_producto\": \"XXXX-YYYY-ZZZZ-WWWW\",\n  \"fecha_expiracion\": \"2025-12-31\",\n  \"asientos_totales\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/licencias",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Asignar Licencia a Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_licencia\": 1,\n  \"id_usuario\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/licencias/asignar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "asignar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Asignar Licencia a Activo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_licencia\": 1,\n  \"id_activo\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/licencias/asignar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "asignar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Licencia",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha_expiracion\": \"2026-12-31\",\n  \"asientos_totales\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/licencias/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Revocar Asignacion",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/licencias/asignacion/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "asignacion",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Licencia",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/licencias/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "licencias",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tickets",
+      "item": [
+        {
+          "name": "GET Tickets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Tickets por Activo",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/activo/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "activo",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Tickets Asignados (Mis)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/asignados/mis",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "asignados",
+                "mis"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Metricas MTTR/MTBF",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/metricas?id_activo=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "metricas?id_activo=1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Metricas MTTR/MTBF (sin filtro)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/metricas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "metricas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Ticket por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Ticket",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_activo\": 1,\n  \"id_usuario_reporta\": 1,\n  \"descripcion\": \"Falla reportada desde Postman\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Ticket",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"En Proceso\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Cambiar Estado Ticket",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/1/estado",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "1",
+                "estado"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Cerrado\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Ticket",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tickets/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Software",
+      "item": [
+        {
+          "name": "GET Todos los software",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/software",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "software"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Software por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/software/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "software",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Software",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Windows 12 Pro\",\n  \"fabricante\": \"Microsoft\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/software",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "software"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Software",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fabricante\": \"Microsoft Corporation\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/software/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "software",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Eliminar Software",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/software/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "software",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Flujo Ticket -> Repuesto",
+      "item": [
+        {
+          "name": "POST Crear Ticket",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json();",
+                  "if (data && data.id_ticket) pm.collectionVariables.set('ticket_id', data.id_ticket);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_activo\": 1,\n  \"id_usuario_reporta\": 6,\n  \"descripcion\": \"Falla en el equipo - flujo de prueba\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tickets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Asignar Tecnico (Orden de Mantenimiento)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json();",
+                  "if (data && data.id_orden) pm.collectionVariables.set('orden_id', data.id_orden);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_ticket\": {{ticket_id}},\n  \"id_usuario_tecnico\": 2,\n  \"diagnostico\": \"Asignacion inicial\",\n  \"fecha_inicio\": \"2026-03-10T10:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mantenimientos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Repuesto (Stock Antes)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json();",
+                  "if (data && data.stock !== undefined) pm.collectionVariables.set('stock_before', data.stock);",
+                  "pm.collectionVariables.set('repuesto_id', 1);",
+                  "pm.collectionVariables.set('cantidad_usada', 1);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Consumo Repuesto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_repuesto\": {{repuesto_id}},\n  \"cantidad_usada\": {{cantidad_usada}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/{{orden_id}}/consumos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "{{orden_id}}",
+                "consumos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Repuesto (Stock Despues)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.code >= 200 && pm.response.code < 300) {",
+                  "  const data = pm.response.json();",
+                  "  const before = Number(pm.collectionVariables.get('stock_before'));",
+                  "  const used = Number(pm.collectionVariables.get('cantidad_usada'));",
+                  "  if (!Number.isNaN(before) && !Number.isNaN(used)) {",
+                  "    pm.test('Stock descontado', function () {",
+                  "      pm.expect(data.stock).to.eql(before - used);",
+                  "    });",
+                  "  }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/repuestos/{{repuesto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "repuestos",
+                "{{repuesto_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Cerrar Ticket",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Cerrado\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tickets/{{ticket_id}}/estado",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "tickets",
+                "{{ticket_id}}",
+                "estado"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "GET Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuarios",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuarios",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "usuarios"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Usuario API\",\n  \"email\": \"usuario_api@sigam.test\",\n  \"password\": \"Password1\",\n  \"rol\": \"Usuario\"\n}"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "GET Categorias",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categorias",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "categorias"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Metricas",
+      "item": [
+        {
+          "name": "GET Metricas Operacion",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/metricas/operacion",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "metricas",
+                "operacion"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Mantenimientos",
+      "item": [
+        {
+          "name": "GET Mantenimientos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Mantenimiento por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Mantenimientos por Tecnico",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/tecnico/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "tecnico",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Consumos de Orden",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/1/consumos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "1",
+                "consumos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Crear Mantenimiento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_ticket\": 1,\n  \"id_usuario_tecnico\": 1,\n  \"diagnostico\": \"Asignacion inicial\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Consumo Repuesto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/1/consumos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "1",
+                "consumos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_repuesto\": 1,\n  \"cantidad_usada\": 1\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Actualizar Mantenimiento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"diagnostico\": \"Actualizacion por Postman\"\n}"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Mantenimiento",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mantenimientos/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mantenimientos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const iter = pm.info.iteration || 0;",
+          "const storedIter = Number(pm.collectionVariables.get(\"run_id_iteration\") || -1);",
+          "let runId = pm.collectionVariables.get(\"run_id\");",
+          "if (!runId || storedIter !== iter) {",
+          "  runId = `${Date.now()}_${iter}`;",
+          "  pm.collectionVariables.set(\"run_id\", runId);",
+          "  pm.collectionVariables.set(\"run_id_iteration\", String(iter));",
+          "  pm.collectionVariables.unset(\"ticket_id\");",
+          "  pm.collectionVariables.unset(\"orden_id\");",
+          "  pm.collectionVariables.unset(\"stock_before\");",
+          "  pm.collectionVariables.unset(\"repuesto_id\");",
+          "  pm.collectionVariables.unset(\"cantidad_usada\");",
+          "}",
+          "const domain = pm.collectionVariables.get(\"email_domain\") || \"sigam.test\";",
+          "pm.collectionVariables.set(\"email_domain\", domain);",
+          "pm.collectionVariables.set(\"email_gerente\", `gerente_${runId}@${domain}`);",
+          "pm.collectionVariables.set(\"email_analista\", `analista_${runId}@${domain}`);",
+          "pm.collectionVariables.set(\"email_tecnico\", `tecnico_${runId}@${domain}`);",
+          "pm.collectionVariables.set(\"email_usuario\", `usuario_${runId}@${domain}`);",
+          "pm.collectionVariables.set(\"email_auditor\", `auditor_${runId}@${domain}`);",
+          "if (!pm.collectionVariables.get(\"password_default\")) {",
+          "  pm.collectionVariables.set(\"password_default\", \"Password1\");",
+          "}",
+          "const roleRaw = pm.iterationData.get(\"role\") || pm.collectionVariables.get(\"role\") || \"gerente\";",
+          "const role = String(roleRaw)",
+          "  .normalize(\"NFD\")",
+          "  .replace(/[\\u0300-\\u036f]/g, \"\")",
+          "  .toLowerCase()",
+          "  .trim();",
+          "pm.collectionVariables.set(\"current_role\", role);",
+          "const tokenMap = {",
+          "  gerente: \"token_gerente\",",
+          "  analista: \"token_analista\",",
+          "  tecnico: \"token_tecnico\",",
+          "  usuario: \"token_usuario\",",
+          "  auditor: \"token_auditor\"",
+          "};",
+          "const tokenVar = tokenMap[role];",
+          "const tokenVal = tokenVar ? pm.collectionVariables.get(tokenVar) : \"\";",
+          "pm.collectionVariables.set(\"token\", tokenVal || \"\");"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const routes = [",
+          "  { method: \"GET\", path: \"/health\", public: true, success: 200 },",
+          "  { method: \"POST\", path: \"/auth/register\", public: true, success: 201 },",
+          "  { method: \"POST\", path: \"/auth/login\", public: true, success: 200 },",
+          "  { method: \"GET\", path: \"/auth/admin-panel\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/auth/configuracion\", roles: [\"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/auth/perfil\", roles: [\"analista\", \"tecnico\", \"gerente\", \"usuario\"], success: 200 },",
+          "  { method: \"GET\", path: \"/usuarios\", roles: [\"gerente\", \"analista\"], success: 200 },",
+          "  { method: \"POST\", path: \"/usuarios\", roles: [\"gerente\"], success: 201 },",
+          "  { method: \"GET\", path: \"/activos\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/activos/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/activos/:id/historial\", roles: [\"analista\", \"tecnico\", \"gerente\", \"auditor\"], success: 200 },",
+          "  { method: \"POST\", path: \"/activos\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/activos/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/activos/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/tickets\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/tickets/activo/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/tickets/asignados/mis\", roles: [\"tecnico\"], success: 200 },",
+          "  { method: \"GET\", path: \"/tickets/metricas\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/tickets/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200, conditionalRoles: [\"tecnico\"] },",
+          "  { method: \"POST\", path: \"/tickets\", roles: [\"analista\", \"tecnico\", \"gerente\", \"usuario\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/tickets/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200, conditionalRoles: [\"tecnico\"] },",
+          "  { method: \"PATCH\", path: \"/tickets/:id/estado\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200, conditionalRoles: [\"tecnico\"] },",
+          "  { method: \"DELETE\", path: \"/tickets/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/mantenimientos\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/mantenimientos/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/mantenimientos/tecnico/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/mantenimientos/:id/consumos\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"POST\", path: \"/mantenimientos\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 201 },",
+          "  { method: \"POST\", path: \"/mantenimientos/:id/consumos\", roles: [\"tecnico\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/mantenimientos/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/mantenimientos/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/metricas/operacion\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/categorias\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/repuestos\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/repuestos/bajo-stock\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/repuestos/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"POST\", path: \"/repuestos\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/repuestos/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/repuestos/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/proveedores\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/proveedores/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"POST\", path: \"/proveedores\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/proveedores/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/proveedores/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/ubicaciones\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/ubicaciones/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"POST\", path: \"/ubicaciones\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/ubicaciones/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/ubicaciones/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/licencias\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/licencias/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/licencias/:id/asignaciones\", roles: [\"analista\", \"gerente\", \"auditor\"], success: 200 },",
+          "  { method: \"POST\", path: \"/licencias\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"POST\", path: \"/licencias/asignar\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/licencias/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/licencias/:id\", roles: [\"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/licencias/asignacion/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/software\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"GET\", path: \"/software/:id\", roles: [\"analista\", \"tecnico\", \"gerente\"], success: 200 },",
+          "  { method: \"POST\", path: \"/software\", roles: [\"analista\", \"gerente\"], success: 201 },",
+          "  { method: \"PUT\", path: \"/software/:id\", roles: [\"analista\", \"gerente\"], success: 200 },",
+          "  { method: \"DELETE\", path: \"/software/:id\", roles: [\"gerente\"], success: 200 }",
+          "];",
+          "",
+          "function normalizePath(path) {",
+          "  return path.split(\"/\").map(seg => {",
+          "    if (!seg) return \"\";",
+          "    if (seg.startsWith(\"{{\") && seg.endsWith(\"}}\")) return \":param\";",
+          "    if (seg.startsWith(\":\")) return \":param\";",
+          "    if (/^\\d+$/.test(seg)) return \":param\";",
+          "    return seg;",
+          "  }).join(\"/\");",
+          "}",
+          "",
+          "const method = pm.request.method.toUpperCase();",
+          "const path = \"/\" + (pm.request.url.path || []).join(\"/\");",
+          "const normalized = normalizePath(path);",
+          "const route = routes.find(r => r.method === method && normalizePath(r.path) === normalized);",
+          "",
+          "pm.test(\"Ruta en matriz\", function () {",
+          "  pm.expect(route, `Sin matriz para ${method} ${path}`).to.not.be.undefined;",
+          "});",
+          "",
+          "if (route) {",
+          "  const role = pm.collectionVariables.get(\"current_role\") || \"anon\";",
+          "  let expected = [];",
+          "  if (route.public) {",
+          "    expected = [route.success];",
+          "  } else if (role === \"anon\") {",
+          "    expected = [401];",
+          "  } else if ((route.roles || []).includes(role)) {",
+          "    expected = [route.success];",
+          "    if (route.conditionalRoles && route.conditionalRoles.includes(role)) {",
+          "      expected.push(403);",
+          "    }",
+          "  } else {",
+          "    expected = [403];",
+          "  }",
+          "  pm.test(`Status esperado (${expected.join(\", \")})`, function () {",
+          "    pm.expect(pm.response.code).to.be.oneOf(expected);",
+          "  });",
+          "}",
+          "",
+          "if (pm.response.text() && pm.response.text().trim().length > 0) {",
+          "  pm.test(\"Respuesta JSON\", function () {",
+          "    pm.response.to.be.json;",
+          "  });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://sigam-backend.vercel.app/api"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "token_gerente",
+      "value": ""
+    },
+    {
+      "key": "token_analista",
+      "value": ""
+    },
+    {
+      "key": "token_tecnico",
+      "value": ""
+    },
+    {
+      "key": "token_usuario",
+      "value": ""
+    },
+    {
+      "key": "run_id",
+      "value": ""
+    },
+    {
+      "key": "email_domain",
+      "value": "sigam.test"
+    },
+    {
+      "key": "email_gerente",
+      "value": ""
+    },
+    {
+      "key": "email_analista",
+      "value": ""
+    },
+    {
+      "key": "email_tecnico",
+      "value": ""
+    },
+    {
+      "key": "email_usuario",
+      "value": ""
+    },
+    {
+      "key": "password_default",
+      "value": "Password1"
+    },
+    {
+      "key": "token_auditor",
+      "value": ""
+    },
+    {
+      "key": "email_auditor",
+      "value": ""
+    },
+    {
+      "key": "run_id_iteration",
+      "value": ""
+    },
+    {
+      "key": "current_role",
+      "value": ""
+    },
+    {
+      "key": "role",
+      "value": "gerente"
+    }
+  ]
+}

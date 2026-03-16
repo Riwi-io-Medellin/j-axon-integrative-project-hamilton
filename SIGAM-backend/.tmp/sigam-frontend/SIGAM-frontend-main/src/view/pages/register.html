@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>create account </h2>
+
+    <form id="registerForm" novalidate>
+        <input type="text" id="name" placeholder="name" required>
+        <input type="text" id="surname" placeholder="surname" required>
+        <input type="email" id="email" placeholder="email" required>
+        <input type="password" id="password" placeholder="password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <select id="role">
+            <option value="Usuario">Usuario</option>
+            <option value="Analista">Analista</option>
+            <option value="Tecnico">Tecnico</option>
+            <option value="Gerente">Gerente</option>
+            <option value="Auditor">Auditor</option>
+        </select>
+        <div id="registerStatus" aria-live="polite"></div>
+        <button id="registerBtn" type="submit">create account</button>
+    </form>
+
+    <p>Do you already have an account?
+    <a href="/login">Login</a>
+    </p>
+</div>
+
+<script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/register.js"></script>
+</body>
+</html>

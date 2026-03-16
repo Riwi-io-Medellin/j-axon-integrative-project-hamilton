@@ -1,0 +1,42 @@
+
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card
+{
+    border-radius:10px;
+}
+
+.card h4
+{
+    font-weight:bold;
+}
+
+canvas
+{
+    max-height:350px;
+}
+
+body{
+    background:#f5f6f8;
+}
+
+.asset-card{
+    background:#f8f3ed;
+    border:1px solid #e2c7a5;
+    padding:15px;
+    border-radius:10px;
+}
+
+.warranty-card{
+    background:#eef3ff;
+    border:1px solid #c6d4ff;
+    padding:15px;
+    border-radius:10px;
+}
+
+.badge-days{
+    height:fit-content;
+}

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8" />
+
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Maintenance Calendar</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+
+    <!-- Librería de iconos Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css"
+    />
+
+    <!-- Framework Bootstrap para diseño responsive -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Archivo CSS propio del calendario -->
+    <link rel="stylesheet" href="../css/calendar.css" />
+  </head>
+
+  <body>
+    <!-- ============================= -->
+    <!-- NAVBAR / BARRA DE NAVEGACIÓN -->
+    <!-- ============================= -->
+
+    <div id="app-navbar"></div>
+
+    <!-- ============================= -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ============================= -->
+
+    <div class="container mt-4">
+      <!-- HEADER DEL MÓDULO -->
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <!-- Título del módulo -->
+        <div>
+          <h3>Maintenance Calendar</h3>
+          <p class="text-muted">
+            Scheduling preventive maintenance and inspections
+          </p>
+        </div>
+
+        <!-- Botón para abrir modal y programar mantenimiento -->
+        <button
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#scheduleModal"
+        >
+          + Schedule Maintenance
+        </button>
+      </div>
+
+      <!-- ============================= -->
+      <!-- TARJETAS DE ESTADÍSTICAS -->
+      <!-- ============================= -->
+
+      <div class="row mb-4">
+        <!-- Mantenimientos programados -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <i class="bi bi-calendar-event"></i>
+            <h6 class="text-muted">Scheduled</h6>
+            <h3 id="scheduledCount">0</h3>
+          </div>
+        </div>
+
+        <!-- Mantenimientos vencidos -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <i class="bi bi-exclamation-triangle"></i>
+            <h6 class="text-muted text-danger">Overdue</h6>
+            <h3 id="overdueCount">0</h3>
+          </div>
+        </div>
+
+        <!-- Equipos incluidos en el plan de mantenimiento -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <i class="bi bi-wrench"></i>
+            <h6 class="text-muted text-success">Assets in Plan</h6>
+            <h3 id="assetsCount">0</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- CONTROLES DE NAVEGACIÓN DEL MES -->
+      <!-- ============================= -->
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- Navegación entre meses -->
+        <div class="d-flex align-items-center gap-2">
+          <!-- Mes anterior -->
+          <button class="btn btn-light" onclick="prevPeriod()">&lsaquo;</button>
+
+          <!-- Nombre del mes actual -->
+          <h5 id="monthLabel" class="mb-0"></h5>
+
+          <!-- Mes siguiente -->
+          <button class="btn btn-light" onclick="nextPeriod()">&rsaquo;</button>
+        </div>
+
+        <!-- Filtros del calendario -->
+        <div class="d-flex gap-2">
+          <!-- Vista semanal/mensual -->
+          <div class="btn-group" role="group" aria-label="Calendar view">
+            <button
+              id="viewWeekBtn"
+              class="btn btn-outline-dark"
+              onclick="setViewMode('week')"
+            >
+              Week
+            </button>
+            <button
+              id="viewMonthBtn"
+              class="btn btn-outline-dark"
+              onclick="setViewMode('month')"
+            >
+              Month
+            </button>
+          </div>
+          <!-- Filtro por tipo de mantenimiento -->
+          <select class="form-select">
+            <option>All Types</option>
+            <option>Preventive</option>
+            <option>In inspection</option>
+            <option>Repair</option>
+          </select>
+
+          <!-- Botón para volver al día actual -->
+          <button class="btn btn-light" onclick="goToday()">Today</button>
+        </div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- DÍAS DE LA SEMANA -->
+      <!-- ============================= -->
+
+      <div class="week-days text-center">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+
+      <!-- ============================= -->
+      <!-- CALENDARIO DINÁMICO -->
+      <!-- ============================= -->
+
+      <!-- Este contenedor es llenado dinámicamente por JavaScript -->
+      <div id="calendar" class="calendar"></div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- MODAL PARA PROGRAMAR MANTENIMIENTO -->
+    <!-- ============================= -->
+
+    <div class="modal fade" id="scheduleModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Schedule Maintenance</h5>
+
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <form id="scheduleForm">
+            <div class="modal-body">
+              <!-- Equipo al que se le hará mantenimiento -->
+              <div class="mb-3">
+                <label class="form-label">Asset</label>
+                <select id="assetName" class="form-select"></select>
+              </div>
+
+              <!-- Tipo de mantenimiento -->
+              <div class="mb-3">
+                <label class="form-label">Maintenance Type</label>
+
+                <select id="maintenanceType" class="form-select">
+                  <option value="preventive">Preventive</option>
+                  <option value="inspection">Inspection</option>
+                  <option value="repair">Repair</option>
+                </select>
+              </div>
+
+              <!-- Fecha del mantenimiento -->
+              <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input id="maintenanceDate" type="date" class="form-control" />
+              </div>
+
+              <!-- Observaciones -->
+              <div class="mb-3">
+                <label class="form-label">Notes</label>
+                <textarea id="notes" class="form-control"></textarea>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancel
+              </button>
+
+              <button type="submit" class="btn btn-dark">Save Schedule</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- MODAL DE DETALLE DEL MANTENIMIENTO -->
+    <!-- ============================= -->
+
+    <div class="modal fade" id="detailModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Maintenance Details</h5>
+
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Información del mantenimiento seleccionado -->
+          <div class="modal-body">
+            <p><strong>Asset:</strong> <span id="detailAsset"></span></p>
+
+            <p><strong>Type:</strong> <span id="detailType"></span></p>
+
+            <p><strong>Date:</strong> <span id="detailDate"></span></p>
+
+            <p><strong>Notes:</strong> <span id="detailNotes"></span></p>
+          </div>
+
+          <!-- Acciones del mantenimiento -->
+          <div class="modal-footer">
+            <button class="btn btn-danger" onclick="deleteMaintenance()">
+              Delete
+            </button>
+
+            <button class="btn btn-primary" onclick="editMaintenance()">
+              Edit
+            </button>
+
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../services/navbar.js"></script>
+    <script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script>
+    window.SIGAM_PAGE_ROLES = ["Gerente", "Tecnico"];
+    </script>
+    <script src="../services/auth-guard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lógica del calendario -->
+    <script src="../js/calendar.js"></script>
+  </body>
+</html>

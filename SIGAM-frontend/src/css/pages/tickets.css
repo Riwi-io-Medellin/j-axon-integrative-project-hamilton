@@ -1,0 +1,549 @@
+/* ==========================================================================
+   SIGAM - Tickets Page Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+body.page-tickets {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+body.page-tickets .container {
+  width: min(1160px, 92vw);
+  margin: var(--space-10) auto var(--space-12);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+body.page-tickets .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+body.page-tickets .header h1 {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+body.page-tickets .subtitle {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   BUTTONS (use component classes from buttons.css)
+   ========================================================================== */
+
+body.page-tickets .btn-nuevo {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-xl);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+}
+
+body.page-tickets .btn-nuevo:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xl);
+}
+
+body.page-tickets .btn-nuevo.btn-small {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   FILTERS
+   ========================================================================== */
+
+body.page-tickets .filters {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.6fr) repeat(2, minmax(160px, 1fr));
+  gap: var(--space-4);
+  background: var(--card-bg);
+  padding: var(--space-4);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  margin-bottom: var(--space-5);
+}
+
+body.page-tickets .search,
+body.page-tickets select {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--input-border);
+  background: var(--bg-tertiary);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+body.page-tickets .search:focus,
+body.page-tickets select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+body.page-tickets .contador {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   VIEW TOGGLE & PAGINATION
+   ========================================================================== */
+
+body.page-tickets .ticket-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+body.page-tickets .btn-group .sigam-btn.btn-outline-dark {
+  border-color: var(--border-light);
+  color: var(--color-primary-700);
+  background: var(--card-bg);
+}
+
+body.page-tickets .btn-group .sigam-btn.btn-outline-dark.active,
+body.page-tickets .btn-group .sigam-btn.btn-outline-dark:focus {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border-color: var(--color-slate-900);
+}
+
+body.page-tickets .ticket-page-info {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TICKET GRID VIEW
+   ========================================================================== */
+
+body.page-tickets #ticketGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+  margin: 0 auto var(--space-8);
+}
+
+body.page-tickets .ticket,
+body.page-tickets .ticket-card {
+  background: var(--card-bg);
+  padding: var(--space-5);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  display: grid;
+  gap: var(--space-3);
+  position: relative;
+  border-left: 4px solid transparent;
+  transition: box-shadow var(--transition-fast);
+}
+
+body.page-tickets .ticket:hover,
+body.page-tickets .ticket-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+body.page-tickets .ticket-card.status-abierto {
+  border-left-color: var(--color-primary-600);
+}
+
+body.page-tickets .ticket-card.status-en-proceso {
+  border-left-color: var(--color-warning);
+}
+
+body.page-tickets .ticket-card.status-cerrado,
+body.page-tickets .ticket-card.status-resuelto {
+  border-left-color: var(--color-success);
+}
+
+body.page-tickets .ticket-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  word-break: break-word;
+  color: var(--text-primary);
+}
+
+body.page-tickets .ticket-desc {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+body.page-tickets .ticket-info {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   TICKET META INFO
+   ========================================================================== */
+
+body.page-tickets .ticket-line,
+body.page-tickets .ticket-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+}
+
+body.page-tickets .ticket-line span,
+body.page-tickets .ticket-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  font-size: var(--text-xs);
+}
+
+/* ==========================================================================
+   STATUS BADGES
+   ========================================================================== */
+
+body.page-tickets .ticket-status {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+  width: fit-content;
+}
+
+body.page-tickets .ticket-status.status-abierto {
+  background: var(--color-info-light);
+  color: var(--color-primary-700);
+}
+
+body.page-tickets .ticket-status.status-en-proceso {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+body.page-tickets .ticket-status.status-cerrado {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+body.page-tickets .ticket-status.status-resuelto {
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+}
+
+/* ==========================================================================
+   LIST VIEW
+   ========================================================================== */
+
+body.page-tickets #ticketListView {
+  margin: 0 auto var(--space-8);
+}
+
+body.page-tickets #ticketListView table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body.page-tickets #ticketListView thead {
+  background: var(--table-header-bg);
+}
+
+body.page-tickets #ticketListView th,
+body.page-tickets #ticketListView td {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+body.page-tickets #ticketListView th {
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+}
+
+body.page-tickets #ticketListView tbody tr {
+  cursor: pointer;
+  border-bottom: 1px solid var(--table-border);
+  transition: background-color var(--transition-fast);
+}
+
+body.page-tickets #ticketListView tbody tr:hover {
+  background: var(--table-row-hover);
+}
+
+body.page-tickets .ticket-row {
+  border-left: 4px solid transparent;
+}
+
+body.page-tickets .ticket-row.status-abierto {
+  border-left-color: var(--color-primary-600);
+}
+
+body.page-tickets .ticket-row.status-en-proceso {
+  border-left-color: var(--color-warning);
+}
+
+body.page-tickets .ticket-row.status-cerrado,
+body.page-tickets .ticket-row.status-resuelto {
+  border-left-color: var(--color-success);
+}
+
+/* ==========================================================================
+   DELETE BUTTON
+   ========================================================================== */
+
+body.page-tickets .delete-btn {
+  margin-top: var(--space-2);
+  background: var(--color-danger);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  width: fit-content;
+}
+
+body.page-tickets .delete-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+body.page-tickets .pagination {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: flex-end;
+  margin: var(--space-3) auto var(--space-8);
+}
+
+body.page-tickets .btn-page {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+body.page-tickets .btn-page:hover {
+  background: var(--color-slate-800);
+}
+
+body.page-tickets .btn-page:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+body.page-tickets .page-info {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+body.page-tickets .page-size {
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+body.page-tickets .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+  backdrop-filter: blur(3px);
+}
+
+body.page-tickets .modal-content {
+  background: var(--card-bg);
+  padding: var(--space-6);
+  width: min(520px, 92vw);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-xl);
+}
+
+body.page-tickets .modal-content input,
+body.page-tickets .modal-content textarea,
+body.page-tickets .modal-content select {
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--input-border);
+  font-size: var(--text-sm);
+}
+
+body.page-tickets .modal-content input:focus,
+body.page-tickets .modal-content textarea:focus,
+body.page-tickets .modal-content select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+body.page-tickets .modal-content .input-error {
+  border-color: var(--color-danger);
+  background: var(--color-danger-light);
+}
+
+body.page-tickets .field-error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+  min-height: 16px;
+}
+
+body.page-tickets #ticketForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+body.page-tickets .close {
+  align-self: flex-end;
+  font-size: var(--text-xl);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+body.page-tickets .close:hover {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   TICKET DETAIL
+   ========================================================================== */
+
+body.page-tickets .ticket-detail {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--card-shadow);
+}
+
+body.page-tickets .detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3) var(--space-5);
+  margin: var(--space-4) 0 var(--space-5);
+}
+
+body.page-tickets .detail-grid span {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  font-size: var(--text-sm);
+}
+
+body.page-tickets .detail-grid .ticket-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+}
+
+body.page-tickets .detail-section {
+  margin-top: var(--space-5);
+}
+
+body.page-tickets .detail-solutions {
+  display: grid;
+  gap: var(--space-3);
+}
+
+body.page-tickets .solution-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3);
+}
+
+body.page-tickets .detail-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+body.page-tickets .detail-actions select {
+  min-width: 220px;
+}
+
+body.page-tickets .detail-actions button {
+  min-width: 160px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  body.page-tickets .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body.page-tickets .filters {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-tickets .ticket-line,
+  body.page-tickets .ticket-meta {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 450px) {
+  body.page-tickets .container {
+    margin-top: var(--space-6);
+  }
+}

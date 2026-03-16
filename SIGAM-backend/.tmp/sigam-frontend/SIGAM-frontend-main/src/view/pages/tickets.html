@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+    <link rel="icon" type="image/svg+xml" href="../services/logo_circular.png">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css"
+    >
+    <link rel="stylesheet" href="../css/tickets.css">
+</head>
+
+<body>
+    <div id="app-navbar"></div>
+
+
+    <div class="container">
+
+        <div class="header">
+
+            <div>
+                <h1>soport ticket</h1>
+                <p class="subtitle">Management of incidents and technical requests</p>
+            </div>
+
+            <button id="newTicketBtn" class="btn-nuevo">+ New Ticket</button>
+        </div>
+        <div class="filters">
+            <input id="searchInput" type="text"placeholder="Buscar tickets..."class="search">
+            <select id="statusFilter">
+                <option value="all">All the states</option>
+                <option value="abierto">Abierto</option>
+                <option value="en proceso">En Proceso</option>
+                <option value="cerrado">Cerrado</option>
+            </select>
+        </div>
+        <p id="contadorTickets" class="contador"></p>
+        <!-- FORMULARIO -->
+        <div id="ticketModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+                <h2>Create New Ticket</h2>
+                <form id="ticketForm" novalidate>
+                    <input id="title" placeholder="Titulo del ticket" required>
+                    <div class="field-error" id="titleError"></div>
+                    <textarea id="description" placeholder="Descripcion" required></textarea>
+                    <div class="field-error" id="descriptionError"></div>
+                    <input id="device" list="deviceList" placeholder="Serial del activo" required>
+                    <datalist id="deviceList"></datalist>
+                    <div class="field-error" id="deviceError"></div>
+                    <select id="category" required>
+                        <option value="">Selecciona categoria</option>
+                    </select>
+                    <div class="field-error" id="categoryError"></div>
+                    <input id="createdBy" placeholder="Creado por" required readonly>
+                    <div class="field-error" id="createdByError"></div>
+                    <input id="assignedTo" placeholder="Asignado a">
+                    <div class="field-error" id="assignedToError"></div>
+                    <input id="estimate" placeholder="Tiempo estimado (ej: 2h)">
+                    <div class="field-error" id="estimateError"></div>
+                    <select id="status" required>
+                        <option value="">Select status</option>
+                        <option value="Abierto">Abierto</option>
+                        <option value="En Proceso">En Proceso</option>
+                        <option value="Cerrado">Cerrado</option>
+                    </select>
+                    <div class="field-error" id="statusError"></div>
+                    <div class="ticket-status" id="ticketStatus" aria-live="polite"></div>
+                    <button id="addTicket" type="submit">Add Ticket</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA DE TICKETS -->
+    <div id="ticketList"></div>
+
+
+    <script src="../services/navbar.js"></script>
+    <script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script>
+    window.SIGAM_PAGE_ROLES = ["Gerente", "Analista", "Tecnico", "Usuario"];
+    </script>
+    <script src="../services/auth-guard.js"></script>
+    <script src="../js/tickets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

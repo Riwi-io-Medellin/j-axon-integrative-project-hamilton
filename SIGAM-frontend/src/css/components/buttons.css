@@ -1,0 +1,288 @@
+/* ==========================================================================
+   SIGAM - Button Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   BASE BUTTON
+   ========================================================================== */
+
+.sigam-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.sigam-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-200);
+}
+
+.sigam-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BUTTON SIZES
+   ========================================================================== */
+
+.sigam-btn-sm {
+  height: var(--btn-height-sm);
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+.sigam-btn-md {
+  height: var(--btn-height-md);
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.sigam-btn-lg {
+  height: var(--btn-height-lg);
+  padding: 0 var(--space-6);
+  font-size: var(--text-base);
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Primary
+   ========================================================================== */
+
+.sigam-btn-primary {
+  background: var(--color-primary-600);
+  color: var(--text-inverse);
+  border-color: var(--color-primary-600);
+}
+
+.sigam-btn-primary:hover {
+  background: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+.sigam-btn-primary:active {
+  background: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Secondary (Dark)
+   ========================================================================== */
+
+.sigam-btn-secondary,
+.sigam-btn.btn-nuevo {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border-color: var(--color-slate-900);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.sigam-btn-secondary:hover,
+.sigam-btn.btn-nuevo:hover {
+  background: var(--color-slate-800);
+  border-color: var(--color-slate-800);
+}
+
+.sigam-btn-secondary:active,
+.sigam-btn.btn-nuevo:active {
+  background: var(--color-slate-700);
+}
+
+.sigam-btn.btn-nuevo.btn-small {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Outline
+   ========================================================================== */
+
+.sigam-btn-outline,
+.sigam-btn.btn-outline-dark {
+  background: var(--bg-secondary);
+  color: var(--color-primary-700);
+  border: 1px solid var(--color-primary-200);
+}
+
+.sigam-btn-outline:hover,
+.sigam-btn.btn-outline-dark:hover {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
+}
+
+.sigam-btn-outline:active,
+.sigam-btn.btn-outline-dark:active {
+  background: var(--color-primary-100);
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Ghost / Light
+   ========================================================================== */
+
+.sigam-btn-ghost,
+.sigam-btn.btn-light {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.sigam-btn-ghost:hover,
+.sigam-btn.btn-light:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-default);
+}
+
+.sigam-btn-ghost:active,
+.sigam-btn.btn-light:active {
+  background: var(--color-slate-200);
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Page Navigation
+   ========================================================================== */
+
+.sigam-btn.btn-page {
+  background: var(--color-slate-900);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.sigam-btn.btn-page:hover {
+  background: var(--color-slate-800);
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Link
+   ========================================================================== */
+
+.sigam-btn-link,
+.sigam-btn.btn-link {
+  background: transparent;
+  color: var(--text-link);
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  height: auto;
+}
+
+.sigam-btn-link:hover,
+.sigam-btn.btn-link:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+.sigam-btn-link:focus {
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS - Semantic Colors
+   ========================================================================== */
+
+/* Success */
+.sigam-btn-success {
+  background: var(--color-success);
+  color: var(--text-inverse);
+  border-color: var(--color-success);
+}
+
+.sigam-btn-success:hover {
+  background: var(--color-success-dark);
+  border-color: var(--color-success-dark);
+}
+
+/* Warning */
+.sigam-btn-warning {
+  background: var(--color-warning);
+  color: var(--text-inverse);
+  border-color: var(--color-warning);
+}
+
+.sigam-btn-warning:hover {
+  background: var(--color-warning-dark);
+  border-color: var(--color-warning-dark);
+}
+
+/* Danger */
+.sigam-btn-danger {
+  background: var(--color-danger);
+  color: var(--text-inverse);
+  border-color: var(--color-danger);
+}
+
+.sigam-btn-danger:hover {
+  background: var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+}
+
+/* ==========================================================================
+   BUTTON GROUPS
+   ========================================================================== */
+
+.sigam-btn-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.sigam-btn-group .sigam-btn {
+  border-radius: 0;
+}
+
+.sigam-btn-group .sigam-btn:first-child {
+  border-radius: var(--btn-radius) 0 0 var(--btn-radius);
+}
+
+.sigam-btn-group .sigam-btn:last-child {
+  border-radius: 0 var(--btn-radius) var(--btn-radius) 0;
+}
+
+.sigam-btn-group .sigam-btn:not(:last-child) {
+  border-right: none;
+}
+
+/* ==========================================================================
+   ICON BUTTONS
+   ========================================================================== */
+
+.sigam-btn-icon {
+  width: var(--btn-height-md);
+  height: var(--btn-height-md);
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+.sigam-btn-icon.sigam-btn-sm {
+  width: var(--btn-height-sm);
+  height: var(--btn-height-sm);
+}
+
+.sigam-btn-icon.sigam-btn-lg {
+  width: var(--btn-height-lg);
+  height: var(--btn-height-lg);
+}
+
+.sigam-btn-icon svg,
+.sigam-btn-icon i {
+  width: 1.25em;
+  height: 1.25em;
+}

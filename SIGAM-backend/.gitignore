@@ -1,0 +1,7 @@
+node_modules
+.env
+.pnpm-store/
+proyecto.md
+base_de_datos.md
+nombre_del_algoritmo.md
+planREvisonIA.md

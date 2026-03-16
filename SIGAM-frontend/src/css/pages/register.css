@@ -1,0 +1,248 @@
+/* ==========================================================================
+   SIGAM - Register Page Styles
+   Consistente con login.css
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+body.page-register {
+  font-family: "Manrope", var(--font-sans);
+  background:
+    radial-gradient(800px 380px at 15% 10%, rgba(59, 130, 246, 0.18), transparent 60%),
+    radial-gradient(700px 300px at 85% 15%, rgba(30, 64, 175, 0.2), transparent 55%),
+    linear-gradient(180deg, #0f172a 0%, #1e293b 40%, #0b1220 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   BACKGROUND ORBS
+   ========================================================================== */
+
+body.page-register::before,
+body.page-register::after {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+body.page-register::before {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb 60%, transparent 70%);
+}
+
+body.page-register::after {
+  bottom: -140px;
+  right: -80px;
+  background: radial-gradient(circle at 70% 70%, #93c5fd, #1d4ed8 55%, transparent 75%);
+}
+
+/* ==========================================================================
+   REGISTER LAYOUT
+   ========================================================================== */
+
+body.page-register .register-shell {
+  width: min(92vw, 980px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.page-register .register-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--space-10) var(--space-8);
+  border-radius: var(--radius-2xl);
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* ==========================================================================
+   BRANDING
+   ========================================================================== */
+
+body.page-register .register-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+body.page-register .register-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: var(--space-2);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.25);
+  object-fit: contain;
+}
+
+body.page-register .register-brand-text h1 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: var(--font-bold);
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+body.page-register .register-brand-text p {
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+  margin: var(--space-2) 0 0;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+body.page-register .form-group {
+  margin-bottom: var(--space-4);
+}
+
+body.page-register label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+body.page-register input,
+body.page-register select {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--color-slate-200);
+  font-size: var(--text-sm);
+  background: #f8fafc;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+body.page-register select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #64748b 50%),
+    linear-gradient(135deg, #64748b 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px),
+    calc(100% - 12px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+body.page-register input:focus,
+body.page-register select:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.page-register input::placeholder {
+  color: var(--color-slate-400);
+}
+
+body.page-register .form-status {
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+  min-height: 1.5rem;
+  margin-bottom: var(--space-3);
+}
+
+/* ==========================================================================
+   BUTTON
+   ========================================================================== */
+
+body.page-register button {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--btn-radius);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: var(--space-1);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.25);
+}
+
+body.page-register button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.35);
+}
+
+body.page-register button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+body.page-register a {
+  color: var(--text-link);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+body.page-register a:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+body.page-register .register-footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+}
+
+body.page-register .register-footer a {
+  color: var(--text-link);
+  font-weight: var(--font-medium);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  body.page-register {
+    padding: var(--space-4);
+  }
+
+  body.page-register .register-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  body.page-register .register-logo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-height: 600px) {
+  body.page-register {
+    align-items: flex-start;
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+}

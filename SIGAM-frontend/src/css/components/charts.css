@@ -1,0 +1,271 @@
+/* ==========================================================================
+   SIGAM - Chart.js Configuration Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   CHART CONTAINER
+   ========================================================================== */
+
+.sigam-chart-container {
+  position: relative;
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: var(--space-5);
+}
+
+.sigam-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.sigam-chart-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sigam-chart-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.sigam-chart-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ==========================================================================
+   CHART CANVAS WRAPPER
+   ========================================================================== */
+
+.sigam-chart-canvas {
+  position: relative;
+  width: 100%;
+}
+
+/* Fixed height options */
+.sigam-chart-canvas-sm { height: 200px; }
+.sigam-chart-canvas-md { height: 300px; }
+.sigam-chart-canvas-lg { height: 400px; }
+.sigam-chart-canvas-xl { height: 500px; }
+
+/* Aspect ratio options */
+.sigam-chart-canvas-16x9 { aspect-ratio: 16 / 9; }
+.sigam-chart-canvas-4x3 { aspect-ratio: 4 / 3; }
+.sigam-chart-canvas-1x1 { aspect-ratio: 1 / 1; }
+
+/* ==========================================================================
+   CHART LEGEND
+   ========================================================================== */
+
+.sigam-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+}
+
+.sigam-chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.sigam-chart-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CHART FILTER TABS
+   ========================================================================== */
+
+.sigam-chart-tabs {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+}
+
+.sigam-chart-tab {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sigam-chart-tab:hover {
+  color: var(--text-primary);
+}
+
+.sigam-chart-tab.active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   CHART GRID LAYOUTS
+   ========================================================================== */
+
+.sigam-chart-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.sigam-chart-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.sigam-chart-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Main chart + side chart layout */
+.sigam-chart-layout-main-side {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .sigam-chart-grid-2,
+  .sigam-chart-grid-3,
+  .sigam-chart-layout-main-side {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   CHART STAT OVERLAY
+   ========================================================================== */
+
+.sigam-chart-stat-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.sigam-chart-stat-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.sigam-chart-stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   CHART LOADING STATE
+   ========================================================================== */
+
+.sigam-chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--text-muted);
+}
+
+.sigam-chart-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--color-primary-500);
+  border-radius: 50%;
+  animation: chart-spin 0.8s linear infinite;
+}
+
+@keyframes chart-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   CHART EMPTY STATE
+   ========================================================================== */
+
+.sigam-chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.sigam-chart-empty-icon {
+  font-size: var(--text-4xl);
+  color: var(--color-slate-300);
+  margin-bottom: var(--space-4);
+}
+
+.sigam-chart-empty-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.sigam-chart-empty-description {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CHART.JS TOOLTIP OVERRIDES
+   ========================================================================== */
+
+/* These are applied via Chart.js config, but we document CSS variables here */
+:root {
+  --chart-tooltip-bg: var(--color-slate-800);
+  --chart-tooltip-color: var(--text-inverse);
+  --chart-tooltip-border: var(--color-slate-700);
+  --chart-tooltip-radius: var(--radius-md);
+  --chart-tooltip-padding: var(--space-3);
+  
+  /* Chart color palette - consistent with design system */
+  --chart-color-1: var(--color-primary-500);
+  --chart-color-2: var(--color-primary-400);
+  --chart-color-3: var(--color-primary-300);
+  --chart-color-4: var(--color-slate-500);
+  --chart-color-5: var(--color-slate-400);
+  --chart-color-6: var(--color-slate-300);
+  
+  /* Semantic chart colors */
+  --chart-success: var(--color-success);
+  --chart-warning: var(--color-warning);
+  --chart-danger: var(--color-danger);
+  --chart-info: var(--color-info);
+  
+  /* Chart grid lines */
+  --chart-grid-color: var(--color-slate-200);
+  --chart-axis-color: var(--color-slate-400);
+}

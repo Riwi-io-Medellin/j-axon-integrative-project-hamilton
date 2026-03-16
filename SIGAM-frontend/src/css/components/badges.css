@@ -1,0 +1,292 @@
+/* ==========================================================================
+   SIGAM - Badge Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   BASE BADGE
+   ========================================================================== */
+
+.sigam-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--badge-padding);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  line-height: 1;
+  border-radius: var(--badge-radius);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   BADGE SIZES
+   ========================================================================== */
+
+.sigam-badge-sm {
+  padding: 2px var(--space-2);
+  font-size: 10px;
+}
+
+.sigam-badge-lg {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================================================
+   BADGE VARIANTS - Solid
+   ========================================================================== */
+
+.sigam-badge-primary {
+  background: var(--color-primary-600);
+  color: var(--text-inverse);
+}
+
+.sigam-badge-secondary {
+  background: var(--color-slate-600);
+  color: var(--text-inverse);
+}
+
+.sigam-badge-success {
+  background: var(--color-success);
+  color: var(--text-inverse);
+}
+
+.sigam-badge-warning {
+  background: var(--color-warning);
+  color: var(--text-inverse);
+}
+
+.sigam-badge-danger {
+  background: var(--color-danger);
+  color: var(--text-inverse);
+}
+
+.sigam-badge-info {
+  background: var(--color-info);
+  color: var(--text-inverse);
+}
+
+/* ==========================================================================
+   BADGE VARIANTS - Soft (Light backgrounds)
+   ========================================================================== */
+
+.sigam-badge-soft-primary {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.sigam-badge-soft-secondary {
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+}
+
+.sigam-badge-soft-success {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.sigam-badge-soft-warning {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+.sigam-badge-soft-danger {
+  background: var(--color-danger-light);
+  color: var(--color-danger-dark);
+}
+
+.sigam-badge-soft-info {
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+}
+
+/* ==========================================================================
+   BADGE VARIANTS - Outline
+   ========================================================================== */
+
+.sigam-badge-outline-primary {
+  background: transparent;
+  border: 1px solid var(--color-primary-300);
+  color: var(--color-primary-600);
+}
+
+.sigam-badge-outline-secondary {
+  background: transparent;
+  border: 1px solid var(--color-slate-300);
+  color: var(--color-slate-600);
+}
+
+.sigam-badge-outline-success {
+  background: transparent;
+  border: 1px solid var(--color-success);
+  color: var(--color-success-dark);
+}
+
+.sigam-badge-outline-warning {
+  background: transparent;
+  border: 1px solid var(--color-warning);
+  color: var(--color-warning-dark);
+}
+
+.sigam-badge-outline-danger {
+  background: transparent;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger-dark);
+}
+
+/* ==========================================================================
+   STATUS BADGES (Ticket system)
+   ========================================================================== */
+
+.sigam-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-full);
+}
+
+.sigam-status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Status: Abierto / Open */
+.sigam-status-open {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.sigam-status-open::before {
+  background: var(--color-primary-500);
+}
+
+/* Status: En Progreso / In Progress */
+.sigam-status-progress {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+.sigam-status-progress::before {
+  background: var(--color-warning);
+}
+
+/* Status: Cerrado / Closed */
+.sigam-status-closed {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.sigam-status-closed::before {
+  background: var(--color-success);
+}
+
+/* Status: Pendiente / Pending */
+.sigam-status-pending {
+  background: var(--color-slate-100);
+  color: var(--color-slate-600);
+}
+
+.sigam-status-pending::before {
+  background: var(--color-slate-400);
+}
+
+/* Status: Urgente / Urgent */
+.sigam-status-urgent {
+  background: var(--color-danger-light);
+  color: var(--color-danger-dark);
+}
+
+.sigam-status-urgent::before {
+  background: var(--color-danger);
+}
+
+/* ==========================================================================
+   PRIORITY BADGES
+   ========================================================================== */
+
+.sigam-priority-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-sm);
+}
+
+.sigam-priority-low {
+  background: var(--color-slate-100);
+  color: var(--color-slate-600);
+}
+
+.sigam-priority-medium {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.sigam-priority-high {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+.sigam-priority-critical {
+  background: var(--color-danger-light);
+  color: var(--color-danger-dark);
+}
+
+/* ==========================================================================
+   COUNT BADGES
+   ========================================================================== */
+
+.sigam-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-2);
+  font-size: 11px;
+  font-weight: var(--font-bold);
+  line-height: 1;
+  border-radius: var(--radius-full);
+  background: var(--color-danger);
+  color: var(--text-inverse);
+}
+
+.sigam-count-badge:empty {
+  display: none;
+}
+
+/* ==========================================================================
+   DOT INDICATOR
+   ========================================================================== */
+
+.sigam-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sigam-dot-primary { background: var(--color-primary-500); }
+.sigam-dot-success { background: var(--color-success); }
+.sigam-dot-warning { background: var(--color-warning); }
+.sigam-dot-danger { background: var(--color-danger); }
+.sigam-dot-muted { background: var(--color-slate-400); }
+
+/* Animated dot */
+.sigam-dot-pulse {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

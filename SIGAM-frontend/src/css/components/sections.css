@@ -1,0 +1,177 @@
+/* ==========================================================================
+   SIGAM - Section Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   BASE SECTION (Card-like container)
+   ========================================================================== */
+
+.sigam-section {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: var(--card-padding);
+}
+
+.sigam-section + .sigam-section {
+  margin-top: var(--space-4);
+}
+
+/* ==========================================================================
+   SECTION HEADER
+   ========================================================================== */
+
+.sigam-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.sigam-section-header.no-border {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sigam-section-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sigam-section-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.sigam-section-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ==========================================================================
+   SECTION BODY
+   ========================================================================== */
+
+.sigam-section-body {
+  /* Default styling for section content */
+}
+
+.sigam-section-body:empty {
+  display: none;
+}
+
+/* ==========================================================================
+   SECTION FOOTER
+   ========================================================================== */
+
+.sigam-section-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+}
+
+.sigam-section-footer.justify-start {
+  justify-content: flex-start;
+}
+
+.sigam-section-footer.justify-between {
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   SECTION VARIANTS
+   ========================================================================== */
+
+/* Compact section - less padding */
+.sigam-section-compact {
+  padding: var(--space-4);
+}
+
+/* Flush section - no padding */
+.sigam-section-flush {
+  padding: 0;
+}
+
+.sigam-section-flush .sigam-section-header,
+.sigam-section-flush .sigam-section-footer {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.sigam-section-flush .sigam-section-header {
+  padding-top: var(--space-4);
+}
+
+.sigam-section-flush .sigam-section-footer {
+  padding-bottom: var(--space-4);
+}
+
+/* Highlighted section */
+.sigam-section-highlight {
+  border-color: var(--color-primary-200);
+  background: var(--color-primary-50);
+}
+
+/* ==========================================================================
+   PAGE SECTIONS
+   ========================================================================== */
+
+.sigam-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.sigam-page-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sigam-page-description {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+  max-width: 600px;
+}
+
+.sigam-page-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CONTENT DIVIDERS
+   ========================================================================== */
+
+.sigam-divider {
+  height: 1px;
+  background: var(--border-light);
+  border: none;
+  margin: var(--space-6) 0;
+}
+
+.sigam-divider-vertical {
+  width: 1px;
+  height: auto;
+  align-self: stretch;
+  background: var(--border-light);
+  margin: 0 var(--space-4);
+}

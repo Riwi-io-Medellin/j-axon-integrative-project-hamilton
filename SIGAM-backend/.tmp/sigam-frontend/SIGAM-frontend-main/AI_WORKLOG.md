@@ -1,0 +1,69 @@
+# AI Worklog
+
+## 2026-03-12
+- Task: Asset registration form validations and feedback.
+- Scope: Added validation rules, inline error messages, and submission feedback for new assets.
+- Files: src/view/pages/inventory.html, src/view/js/inventory.js.
+- Evidence: Manual validation in UI, form prevents submission when invalid and shows messages; save action disables button and confirms success.
+- Task: Asset list filters by category and location.
+- Scope: Added category label, location filter UI, and filtering logic with dynamic location options.
+- Files: src/view/pages/inventory.html, src/view/js/inventory.js.
+- Evidence: Location dropdown populates from assets and filters list without console errors.
+- Task: Tickets API integration and dashboard recent tickets.
+- Scope: Wired tickets CRUD to API layer, added form validation/feedback, and synced dashboard recent tickets list to API.
+- Files: src/view/js/api.js, src/view/js/config.js, src/view/js/tickets.js, src/view/pages/tickets.html, src/view/css/tickets.css, src/view/pages/dashboard.html, src/view/js/charts.js, src/view/css/dashboard.css.
+- Evidence: Tickets load from API, create/delete hits API, dashboard shows recent tickets without console errors.
+- Task: Navbar consistency and fixes for admin, calendar, inventory, reports.
+- Scope: Standardized navbars to match admin, fixed broken absolute asset paths, corrected calendar asset selector, cleaned reports layout.
+- Files: src/view/pages/admin.html, src/view/pages/calendar.html, src/view/pages/inventory.html, src/view/pages/dashboard.html, src/view/pages/tickets.html, src/view/pages/reports.html, src/view/css/dashboard.css, src/view/css/tickets.css, src/view/css/reports.css, src/view/js/calendar.js.
+- Evidence: Pages load without missing CSS/JS assets; calendar schedule uses select for assets; reports page renders with single head/body.
+- Task: Login and register integration with API and form feedback.
+- Scope: Added config/api scripts, wired forms to API, removed inline handlers, and added submission feedback with prevention of double submit.
+- Files: src/view/pages/login.html, src/view/pages/register.html, src/view/js/login.js, src/view/js/register.js.
+- Evidence: Forms submit via API client and show status messages without console errors.
+- Task: Tickets integración con activos y IDs requeridos por backend.
+- Scope: Actualicé endpoints en config/api, agregué carga de activos para select, mapeo de IDs en tickets y ajuste de dashboard para datos derivados.
+- Files: src/view/js/config.js, src/view/js/api.js, src/view/pages/tickets.html, src/view/js/tickets.js, src/view/js/charts.js.
+- Evidence: Tickets crean con id_activo e id_usuario_reporta, activos cargan en el select, dashboard muestra métricas básicas sin endpoint dedicado.
+- Task: Guard de autenticación y roles en vistas protegidas.
+- Scope: Añadí auth-guard central, configuré roles por vista y eliminé redirección local en tickets.
+- Files: src/view/services/auth-guard.js, src/view/pages/dashboard.html, src/view/pages/tickets.html, src/view/pages/inventory.html, src/view/pages/calendar.html, src/view/pages/reports.html, src/view/pages/admin.html, src/view/js/tickets.js.
+- Evidence: Vistas redirigen a login sin token y validan rol según configuración de cada página.
+- Task: Ajuste de roles y carga de inventario desde API.
+- Scope: Actualicé roles por vista, eliminé inventario hardcodeado y cargué activos desde backend; agregué soporte de endpoints de repuestos y fecha/hora en tickets recientes.
+- Files: src/view/pages/dashboard.html, src/view/pages/tickets.html, src/view/pages/reports.html, src/view/pages/admin.html, src/view/js/config.js, src/view/js/api.js, src/view/js/inventory.js, src/view/js/charts.js.
+- Evidence: Inventario se llena desde /api/activos, tickets recientes muestran timestamp, roles aplican acceso según rol.
+- Task: Crear activos en backend desde Inventory.
+- Scope: Conecté el submit de “New Asset” a POST /api/activos y recarga de inventario desde API.
+- Files: src/view/js/api.js, src/view/js/inventory.js.
+- Evidence: Al guardar, se envía payload a API y la lista se refresca desde /api/activos.
+- Task: Favicon global y logo de navbar.
+- Scope: Añadí favicon SVG a todas las vistas y actualicé el logo del navbar para usar la imagen de services.
+- Files: src/view/pages/admin.html, src/view/pages/calendar.html, src/view/pages/dashboard.html, src/view/pages/inventory.html, src/view/pages/login.html, src/view/pages/register.html, src/view/pages/reports.html, src/view/pages/tickets.html, src/view/services/navbar.html.
+- Evidence: La pestaña muestra favicon y el navbar usa el SVG en todas las páginas.
+- Task: Reemplazo de logo por logo_j_axon.svg.
+- Scope: Actualicé el favicon y el logo del navbar para usar la nueva imagen.
+- Files: src/view/pages/admin.html, src/view/pages/calendar.html, src/view/pages/inventory.html, src/view/pages/login.html, src/view/pages/register.html, src/view/pages/reports.html, src/view/pages/tickets.html, src/view/services/navbar.html, src/view/services/logo_j_axon.svg.
+- Evidence: La pestaña y el navbar muestran el nuevo logo en todas las vistas.
+- Task: Reemplazo de logo por logo_circular.png.
+- Scope: Actualicé el favicon y el logo del navbar para usar la nueva imagen circular.
+- Files: src/view/pages/admin.html, src/view/pages/calendar.html, src/view/pages/dashboard.html, src/view/pages/inventory.html, src/view/pages/login.html, src/view/pages/register.html, src/view/pages/reports.html, src/view/pages/tickets.html, src/view/services/navbar.html, src/view/services/logo_circular.png.
+- Evidence: La pestaña y el navbar muestran el logo circular en todas las vistas.
+
+## 2026-03-13
+- Task: Integracion de cambios de compañeros.
+- Scope: Merge de `origin/feature/inventory` hacia `developer` y verificacion de ramas remotas no integradas.
+- Files: inventory.css, inventory.html, inventory.js.
+- Evidence: `git merge origin/feature/inventory` aplicado y cambios visibles en el repo.
+- Task: Preparacion de despliegue en Vercel y configuracion de entorno runtime.
+- Scope: Agregue `vercel.json`, `package.json`, script de build para `runtime-env.js` y actualice `config.js` para leer `SIGAM_API` desde runtime.
+- Files: vercel.json, package.json, scripts/build-env.js, src/view/js/runtime-env.js, src/view/js/config.js, src/view/pages/*.html.
+- Evidence: Rutas limpias definidas en `vercel.json`; `runtime-env.js` cargado antes de `config.js` en paginas.
+- Task: Documentacion actualizada.
+- Scope: README con estructura, configuracion de entorno y despliegue.
+- Files: README.md.
+- Evidence: README describe flujo de Vercel y variables de entorno.
+- Task: Documentacion ampliada y comentarios en codigo.
+- Scope: README ampliado con estructura, rutas, auth, API y contribucion. Comentarios breves en servicios y flujos de auth.
+- Files: README.md, src/view/js/api.js, src/view/js/login.js, src/view/js/register.js, src/view/services/auth-guard.js, src/view/services/navbar.js.
+- Evidence: README incluye secciones de rutas y auth; codigo con comentarios de proposito.

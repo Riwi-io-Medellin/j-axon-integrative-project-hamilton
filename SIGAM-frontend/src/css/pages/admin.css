@@ -1,0 +1,194 @@
+/* ==========================================================================
+   SIGAM - Admin Page Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+body.page-admin {
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   CONTAINER
+   ========================================================================== */
+
+body.page-admin .admin-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+/* ==========================================================================
+   CARDS
+   ========================================================================== */
+
+body.page-admin .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+body.page-admin .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body.page-admin .table th {
+  background: var(--table-header-bg);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+}
+
+body.page-admin .table td {
+  padding: var(--space-3) var(--space-4);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--table-border);
+}
+
+body.page-admin .table tbody tr:hover {
+  background: var(--table-row-hover);
+}
+
+/* ==========================================================================
+   NAV PILLS
+   ========================================================================== */
+
+body.page-admin .nav-pills {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+body.page-admin .nav-pills .nav-link {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+body.page-admin .nav-pills .nav-link:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+body.page-admin .nav-pills .nav-link.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   ADMIN STATS
+   ========================================================================== */
+
+body.page-admin .admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+body.page-admin .admin-stats .card {
+  padding: var(--space-6);
+  border-radius: var(--card-radius);
+  min-height: 140px;
+}
+
+body.page-admin .admin-stats .card .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  body.page-admin .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body.page-admin .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.page-admin .admin-stats .card h4,
+body.page-admin .admin-stats .card h5 {
+  margin-bottom: 0;
+}
+
+body.page-admin .admin-stats .card h4 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+body.page-admin .admin-stats .card h5 {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   ADMIN SECTIONS
+   ========================================================================== */
+
+body.page-admin .admin-section {
+  animation: fadeUp 0.25s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  body.page-admin .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body.page-admin .admin-container {
+    padding: var(--space-3);
+  }
+  
+  body.page-admin .admin-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  body.page-admin .nav-pills {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  
+  body.page-admin .nav-pills .nav-link {
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    padding: var(--space-2) var(--space-3);
+  }
+}

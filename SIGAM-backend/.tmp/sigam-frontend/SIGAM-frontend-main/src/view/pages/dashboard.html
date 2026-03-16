@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-AXON</title>
+    <link rel="icon" href="../services/logo_circular.png">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+</head>
+<body>
+
+
+    <!-- NAVBAR -->
+    <div id="app-navbar"></div>
+<!--Main dashboard content -->
+    <main class="container-dashboard">
+        <!-- summary section-->
+        <section class="cards-dashboard">
+            <div class="card-activos">
+                <h4>Total Assets</h4>
+                <h2 id="totalAssets"></h2>
+                <h6>5 Assets, 1 under maintenance</h6>
+            </div>
+
+            <div class="card-tikects">
+                <h4>tickets Abiertos</h4>
+                <h2 id="openTickets"></h2>
+                <h6>1 Critical, 2 in progress</h6>
+            </div>
+
+            <div class="card-scheduled">
+                <h6>scheduled maintenance</h6>
+                <h2 id="scheduledMaintenance"></h2>
+                <h6>Next 30 days</h6>
+            </div>
+
+            <div class="card-cost">
+                <h6>total maintenance cost</h6>
+                <h2 id="totalCost"></h2>
+                <h6>Accumulated history</h6>
+            </div>
+        </section>
+        <!--CHARTS SECTIONS-->
+        <section class="charts">
+            <!--Charts asset distribution-->
+            <div class="charts-card">
+            <h3>Assets by type</h3>
+            <canvas id="footChart"> </canvas>
+            </div>
+            <div>
+                <h3>tickets for category</h3>
+                <canvas id="barChart" ></canvas>
+            </div>
+        </section>
+        <div class="chart-card-line">
+            <h3>Maintenance Cost Trend</h3>
+            <canvas id="lineChart"></canvas>
+        </div>
+        <!--tickets categories-->
+        
+        <div class="maintenance-tickets-container">
+            
+            <div class="list-tikects">
+                <!--recent tickets list-->
+                <h3>Recent Tickets</h3>
+                <div id="recentTickets" class="recent-tickets">
+                    <p class="ticket-empty">Loading tickets...</p>
+                </div>
+            </div>
+
+                <!-- upcoming maintance section-->
+            <div class="maintenance">
+                <h3>upcoming maintenance</h3>
+                <div class="maintenance-next">
+                    <h4>laptop dell latitude</h4>
+                    <h6>preventive maintenance every six months</h6>
+                    <H6>9/june/2026</H6>
+                </div>
+
+                <div class="maintenance-next">
+                    <h4>HP EliteDesk 800 G6</h4>
+                    <h6>preventive maintenance every six months</h6>
+                    <h6>9/august/2026</h6>
+                </div>
+
+                <div class="maintenance-next">
+                    <h4>server dell powerEdge R740</h4>
+                    <h6>preventive maintenance every trhee months</h6>
+                    <h6>19/april/2026</h6>
+                </div>
+
+                <div class="maintenance-next">
+                    <h4>server dell powerEdge R740</h4>
+                    <h6>monthly server inspection</h6>
+                    <h6>14/march/2026</h6>
+                </div>
+
+                <div class="maintenance-next">
+                    <h4>Impresora HP Laser Jet Pro M404n</h4>
+                    <h6>Quarterly cleaning and maintenance</h6>
+                    <h6>30/april/2026</h6>
+                </div>
+            
+            </div>
+
+        </div>
+    </main>
+    <!-- External chart.js library-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Here call chart.js-->
+<script src="../services/navbar.js"></script>
+<script src="../js/runtime-env.js"></script>
+    <script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script>
+window.SIGAM_PAGE_ROLES = ["Gerente", "Analista", "Tecnico", "Auditor"];
+</script>
+<script src="../services/auth-guard.js"></script>
+<script src="../js/charts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* ==========================================================================
+   SIGAM - Navbar Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+.sigam-navbar {
+  background: linear-gradient(90deg, #0f1b33 0%, #1b2b4d 55%, #243a6b 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-2) 0;
+  min-height: var(--navbar-height);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.sigam-navbar .container {
+  max-width: var(--container-xl);
+  align-items: center;
+  min-height: var(--navbar-height);
+}
+
+/* ==========================================================================
+   BRAND
+   ========================================================================== */
+
+.sigam-navbar .navbar-brand {
+  gap: var(--space-3);
+  min-width: 220px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sigam-navbar .navbar-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 2px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.sigam-navbar .navbar-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.sigam-navbar .navbar-brand strong {
+  font-size: var(--text-lg);
+  line-height: 1.1;
+  color: #ffffff;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sigam-navbar .navbar-brand small {
+  font-size: var(--text-xs);
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.sigam-navbar .text-muted {
+  color: rgba(226, 232, 240, 0.8) !important;
+}
+
+/* ==========================================================================
+   NAV LINKS
+   ========================================================================== */
+
+.sigam-navbar .nav-link {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  color: rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.sigam-navbar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.sigam-navbar .nav-link.active,
+.sigam-navbar .nav-link.text-primary {
+  color: #ffffff !important;
+  font-weight: var(--font-semibold);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   NAVBAR COLLAPSE
+   ========================================================================== */
+
+.sigam-navbar .navbar-collapse {
+  align-items: center;
+  min-height: var(--navbar-height);
+}
+
+.sigam-navbar .navbar-nav {
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* ==========================================================================
+   USER SECTION
+   ========================================================================== */
+
+.sigam-navbar .ms-auto {
+  min-width: 220px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.sigam-navbar #navbar-user {
+  line-height: 1.1;
+  font-size: var(--text-sm);
+  color: rgba(226, 232, 240, 0.9);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.sigam-navbar .btn {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.sigam-navbar .btn:hover,
+.sigam-navbar .btn.btn-outline-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* ==========================================================================
+   MOBILE TOGGLE
+   ========================================================================== */
+
+.sigam-navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+}
+
+.sigam-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .sigam-navbar .navbar-nav {
+    gap: var(--space-1);
+    padding: var(--space-2) 0;
+  }
+
+  .sigam-navbar .ms-auto {
+    min-width: auto;
+    justify-content: flex-start;
+  }
+}

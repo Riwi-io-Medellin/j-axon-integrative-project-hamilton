@@ -1,0 +1,277 @@
+/* ==========================================================================
+   SIGAM - Login Page Styles
+   Usa variables de variables.css
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+body.page-login {
+  font-family: "Manrope", var(--font-sans);
+  background:
+    radial-gradient(800px 380px at 15% 10%, rgba(59, 130, 246, 0.18), transparent 60%),
+    radial-gradient(700px 300px at 85% 15%, rgba(30, 64, 175, 0.2), transparent 55%),
+    linear-gradient(180deg, #0f172a 0%, #1e293b 40%, #0b1220 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   BACKGROUND ORBS
+   ========================================================================== */
+
+body.page-login::before,
+body.page-login::after {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(0px);
+  opacity: 0.18;
+  z-index: 0;
+}
+
+body.page-login::before {
+  top: -120px;
+  left: -120px;
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb 60%, transparent 70%);
+}
+
+body.page-login::after {
+  bottom: -140px;
+  right: -80px;
+  background: radial-gradient(circle at 70% 70%, #93c5fd, #1d4ed8 55%, transparent 75%);
+}
+
+/* ==========================================================================
+   LOGIN LAYOUT
+   ========================================================================== */
+
+body.page-login .login-shell {
+  width: min(92vw, 980px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.page-login .login-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--space-10) var(--space-8);
+  border-radius: var(--radius-2xl);
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* ==========================================================================
+   BRANDING
+   ========================================================================== */
+
+body.page-login .login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+body.page-login .login-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: var(--space-2);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.25);
+  object-fit: contain;
+}
+
+body.page-login .login-brand-text h1 {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: var(--font-bold);
+  color: var(--color-slate-900);
+  margin: 0;
+}
+
+body.page-login .login-brand-text p {
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+  margin: var(--space-2) 0 0;
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+body.page-login .form-group {
+  margin-bottom: var(--space-4);
+}
+
+body.page-login label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+body.page-login input {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--input-radius);
+  border: 1px solid var(--color-slate-200);
+  font-size: var(--text-sm);
+  background: #f8fafc;
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+body.page-login input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.page-login input::placeholder {
+  color: var(--color-slate-400);
+}
+
+body.page-login .form-status {
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+  min-height: 1.5rem;
+  margin-bottom: var(--space-3);
+}
+
+/* ==========================================================================
+   BUTTON
+   ========================================================================== */
+
+body.page-login button {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--btn-radius);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: var(--space-1);
+  box-shadow: 0 12px 20px rgba(37, 99, 235, 0.25);
+}
+
+body.page-login button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.35);
+}
+
+body.page-login button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+body.page-login a {
+  color: var(--text-link);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+body.page-login a:hover {
+  color: var(--text-link-hover);
+  text-decoration: underline;
+}
+
+body.page-login .login-footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-slate-600);
+}
+
+body.page-login .login-footer a {
+  color: var(--text-link);
+  font-weight: var(--font-medium);
+}
+
+/* ==========================================================================
+   REMEMBER ME
+   ========================================================================== */
+
+body.page-login .remember-me {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+body.page-login .remember-me label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+body.page-login .remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==========================================================================
+   ERROR MESSAGE
+   ========================================================================== */
+
+body.page-login .error-message {
+  background: var(--color-danger-light);
+  color: var(--color-danger-dark);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  body.page-login {
+    padding: var(--space-4);
+  }
+
+  body.page-login .login-card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  body.page-login .login-logo {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-height: 600px) {
+  body.page-login {
+    align-items: flex-start;
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+}
